@@ -1,8 +1,21 @@
 h1 {
 	text-align: center;
-	color: blue;
-	background: red;
+	background: #A0A5DB;
+}
 
+.theme {
+	
+	font-size: 30px;	 
+	font-family: cursive;
+	
+
+}
+
+
+#flag {
+	background-image: url("../img/lippu.jpg");
+	height: 80px;
+	margin: 0px 0px 25px 0px;
 }
 
 .heading{
@@ -10,6 +23,8 @@ h1 {
 	color: #288;
 	background: e3e3e3;
 	font-size: 50px;
-	margin: 5px 0 0 0;
+	margin: 0px 0px 25px 0px;
+	
 
 }
+
