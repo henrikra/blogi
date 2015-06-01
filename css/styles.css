@@ -4,3 +4,12 @@ h1 {
 	background: red;
 
 }
+
+.heading{
+	text-align: center;
+	color: #288;
+	background: e3e3e3;
+	font-size: 50px;
+	margin: 5px 0 0 0;
+
+}
