@@ -9,10 +9,7 @@
 	<body>
 		<h1>Erik's Blogi</h1>
 		
-		<div id="flag">
-			<!--<img alt ="kuva" src="img/lippu.jpg">-->
-			
-		</div>
+		<div id="flag"></div>
 		<div class="template">
 			<div class="theme">
 				News
