@@ -10,23 +10,23 @@
 		<div class="wrapper">
 		
 			<div class="input-field">
-				<label for="author">Author</label>
-				<input type="text" id="author">
+				<label class="inline-label" for="author">Author</label><!--
+				--><input class="inline-input" type="text" id="author">
 			</div>
 			
 			<div class="input-field">
-				<label for="date">Date</label>
-				<input type="text" id="date">
+				<label class="inline-label" for="date">Date</label><!--
+				--><input class="inline-input" type="text" id="date">
 			</div>
 			
 			<div class="input-field">
-				<label for="title">Title</label>
-				<input type="text" id="title">
+				<label class="inline-label" for="title">Title</label><!--
+				--><input class="inline-input" type="text" id="title">
 			</div>
 			
 			<div class="input-field">
-				<label for="content">Content</label>
-				<textarea rows="30" cols="70" id="content"></textarea>
+				<label class="inline-label" for="content">Content</label><!--
+				--><textarea class="inline-input" rows="13" cols="70" id="content"></textarea>
 			</div>
 			
 		</div>
