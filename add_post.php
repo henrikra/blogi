@@ -17,12 +17,7 @@
 					<label class="form-label" for="author">Author</label><!--
 					--><input class="form-input" type="text" id="author">
 				</div>
-				
-				<div class="form-row">
-					<label class="form-label" for="date">Tags</label><!--
-					--><input class="form-input" type="text" id="date">
-				</div>
-				
+								
 				<div class="form-row">
 					<label class="form-label" for="title">Title</label><!--
 					--><input class="form-input" type="text" id="title">
@@ -31,6 +26,15 @@
 				<div class="form-row">
 					<label class="form-label" for="content">Content</label><!--
 					--><textarea class="form-input" rows="13" cols="70" id="content"></textarea>
+				</div>
+				
+				<div class="form-row">
+					<label class="form-label" for="tags">Tags</label><!--
+					--><select class="form-input" id="tags">
+						<option value="ruoka">Ruoka</option>
+						<option value="kulttuuri">Kulttuuri</option>
+						<option value="ohjelmointi">Ohjelmointi</option>
+					</select>
 				</div>
 				
 				<div class="form-row">
