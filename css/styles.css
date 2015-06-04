@@ -78,7 +78,7 @@ textarea {
 }
 
 .panel + .panel {
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .clearfix {
@@ -92,8 +92,8 @@ textarea {
 
 aside {
 	float: left;
-	width: 28%;
-	margin-left: 15px;
+	width: 28.68%;
+	margin-left: 10px;
 }
 
 .bio-background {
