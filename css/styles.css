@@ -1,10 +1,39 @@
-*{
+/*--- Common ---*/
+
+* {
 	box-sizing: border-box;
 }
+
 body {	
 	font-family: Arial, Helvetica, sans-serif; /* Font stack */
 	background-image: url("../img/backgroundtex2.png");
 	margin: 0;
+}
+
+/*--- Header ---*/
+
+header h1 {
+	text-align: center;
+	background: #A0A5DB;
+}
+
+header #flag {
+	background-image: url("../img/lippu.jpg");
+	height: 80px;
+	margin: 0px 0px 25px 0px;
+}
+
+/*--- Layout ---*/
+
+.main-content {
+	float: left;
+	width: 70%;
+}
+
+aside {
+	float: left;
+	width: 30%;
+	padding-left: 20px;
 }
 
 .wrapper {
@@ -15,42 +44,31 @@ body {
 
 /*--- Form ---*/
 
-.form-row{
+.form-row {
 	margin-bottom: 8px;
 }
 
-.form-row input{
+.form-row input {
 	display: inline-block;
 }
 
-.form-label{
+.form-label {
 	display: inline-block;
 	text-align: right;
 	padding-right:15px;
 	width: 15%;
 }
 
-.form-input{
+.form-input {
 	display: inline-block;
 	width: 85%;
-}
-
-h1 {
-	text-align: center;
-	background: #A0A5DB;
 }
 
 textarea {
 	vertical-align: top;
 }
 
-#flag {
-	background-image: url("../img/lippu.jpg");
-	height: 80px;
-	margin: 0px 0px 25px 0px;
-}
-
-/*--- Post ---*/
+/*--- Panel ---*/
 
 .panel {
 	border: #ccc 1px solid;
@@ -60,6 +78,12 @@ textarea {
 	padding: 5px 20px;
 	background: #fff;
 }
+
+.panel + .panel {
+	margin-top: 20px;
+}
+
+/*--- Post ---*/
 
 .post-info {
 	color: #666;
@@ -78,24 +102,11 @@ textarea {
 	bottom: 47px; /* Liittyy tällä hetkellä valittuun default-kuvaan */
 }
 
-.panel + .panel {
-	margin-top: 20px;
-}
-
 .clearfix {
 	clear: both;
 }
 
-.main-content {
-	float: left;
-	width: 70%;
-}
-
-aside {
-	float: left;
-	width: 30%;
-	padding-left: 20px;
-}
+/*--- Bio ---*/
 
 .bio-background {
 	height: 150px;
@@ -107,7 +118,7 @@ aside {
 	height: auto;
 }
 
-.bio{
+.bio {
 	text-align: center;
 	position: relative;
 }
@@ -132,7 +143,7 @@ aside {
 	transform: translateY(-50%);
 }
 
-.bio .panel-container{
+.bio .panel-container {
 	padding: 35px 20px 15px;
 }
 
