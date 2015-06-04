@@ -11,6 +11,9 @@
 			<h1>Erik's Blogi (T. Pekka)</h1>
 			<a href="add_post.php">Add post</a>
 			<div id="flag"></div>
+			<div class="post">
+				<img src="img/" alt="Default picture">
+			</div> <!-- post -->
 			<div class="template">
 				<div class="theme">
 					News

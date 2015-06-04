@@ -2,16 +2,14 @@
 	box-sizing: border-box;
 }
 body {	
-	background-image: url("../img/koreaCity.jpg");
+	/* background-image: url("../img/koreaCity.jpg"); */
 	background-size: cover;
 }
 
 .wrapper {
 	max-width: 768px;
 	margin: 0 auto;
-	padding: 0 15px 10px;
-	background: #fff;
-	
+	padding: 0 15px 10px;	
 }
 
 
