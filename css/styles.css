@@ -10,6 +10,10 @@ body {
 	margin: 0;
 }
 
+.clearfix {
+	clear: both;
+}
+
 /*--- Header ---*/
 
 header h1 {
@@ -100,10 +104,6 @@ textarea {
 	height: auto; /*pakottaa kuvasuhteen pysymään alkuperäisenä */
 	position: relative; 
 	bottom: 47px; /* Liittyy tällä hetkellä valittuun default-kuvaan */
-}
-
-.clearfix {
-	clear: both;
 }
 
 /*--- Bio ---*/
