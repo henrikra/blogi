@@ -7,7 +7,7 @@ body {
 }
 
 .wrapper {
-	max-width: 768px;
+	max-width: 992px;
 	margin: 0 auto;
 	padding: 0 15px 10px;	
 }
@@ -79,6 +79,33 @@ textarea {
 
 .post + .post {
 	margin-top: 20px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.main-content {
+	float: left;
+	width: 70%;
+}
+
+aside {
+	float: left;
+	width: 28%;
+	margin-left: 15px;
+}
+
+.bio-background {
+	height: 150px;
+	overflow: hidden;
+}
+
+.post-image img {
+	width: 100%;
+	height: auto;
+	position: relative;
+	bottom: 47px;
 }
 
 
