@@ -20,7 +20,7 @@
 				</div>
 				<hr>
 				<div class="heading">
-				My first day in South-Korea
+				My first day in North-Korea
 				</div>
 				<div class="content">
 					<p>
