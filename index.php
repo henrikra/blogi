@@ -8,7 +8,7 @@
 	
 	<body>
 		<div class="wrapper">
-			<h1>Erik's Blogi</h1>
+			<h1>Erik's Blogi (T. Pekka)</h1>
 			<a href="add_post.php">Add post</a>
 			<div id="flag"></div>
 			<div class="template">
