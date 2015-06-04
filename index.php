@@ -16,7 +16,7 @@
 					News
 				</div>
 				<div class ="date">
-					< 3.6.2015 >
+					< 3.6.2015 > Food Culture
 				</div>
 				<hr>
 				<div class="heading">
