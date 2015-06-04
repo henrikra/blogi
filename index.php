@@ -33,7 +33,7 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 				<div class="post-container">
 					<h2><?php echo $r->title; ?></h2>
 					<div class="post-info"><?php echo $r->postDatetime . " / " . $r->author; ?></div>
-					<p><?php echo $r->content ?></p>
+					<p><?php echo nl2br($r->content); ?></p>
 				</div>
 			</div><!-- post -->
 			<?php endwhile; ?>
