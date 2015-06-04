@@ -6,13 +6,7 @@
 		<link rel="stylesheet" href="css/styles.css"/>
 	</head>
 <?php 
-try {
-	$handler = new PDO('mysql:host=127.0.0.1;dbname=blogi;charset=utf8', 'root', '');
-	$handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-	echo $e->getMessage();
-	die();
-}
+include_once('database.php');
 
 $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 
