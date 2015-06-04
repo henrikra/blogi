@@ -14,7 +14,7 @@ try {
 	die();
 }
 
-$query = $handler->query('SELECT * FROM post;');
+$query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 
 ?>
 	<body>
