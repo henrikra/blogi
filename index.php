@@ -22,9 +22,25 @@ $query = $handler->query('SELECT * FROM post;');
 			<h1>Erik's Blogi (T. Pekka)</h1>
 			<a href="add_post.php">Add post</a>
 			<div id="flag"></div>
+			
 			<div class="post">
-				<img src="img/" alt="Default picture">
-			</div> <!-- post -->
+				<div class="post-image">
+					<img src="img/korea-field.jpg" alt="Default picture">
+				</div>
+				<div class="post-container">
+					<h2>Welcome to Addiction!</h2>
+					<div class="post-info">
+						Thursday, July 03, 2014 / Pekka Pekkonen
+					</div>
+					<p>
+						Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat vehicula, lacus justo semper libero, quis porttitor turpis odio sit amet ligula. Duis dapibus fermentum orci, nec malesuada libero vehicula ut. Integer sodales, urna...
+					</p>
+					<p>
+						Olipa kerran suo, kuokka ja Jussi. Jussi kynsi suota kuokalla.
+					</p>
+				</div>
+			</div><!-- post -->
+			
 			<div class="template">
 				<div class="theme">
 					News
