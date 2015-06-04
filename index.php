@@ -5,7 +5,18 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/styles.css"/>
 	</head>
-	
+<?php 
+try {
+	$handler = new PDO('mysql:host=127.0.0.1;dbname=blogi', 'root', '');
+	$handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+	echo $e->getMessage();
+	die();
+}
+
+$query = $handler->query('SELECT * FROM post;');
+
+?>
 	<body>
 		<div class="wrapper">
 			<h1>Erik's Blogi (T. Pekka)</h1>
