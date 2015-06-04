@@ -31,6 +31,7 @@
 				<div class="form-row">
 					<label class="form-label" for="tags">Tags</label><!--
 					--><select class="form-input" id="tags" name="tag">
+						<option value=""></option>
 						<option value="ruoka">Ruoka</option>
 						<option value="kulttuuri">Kulttuuri</option>
 						<option value="ohjelmointi">Ohjelmointi</option>
