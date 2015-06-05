@@ -29,19 +29,27 @@ CREATE TABLE postTag(
 
 INSERT INTO post
 (author, title, content)
-VALUES ('Pekka Pekkonen', 'Testipostaus', 'Tämä on testipostaus. Se sisältää tekstiä. Tämä on esimmäinen kappale.
+VALUES ('Pekka Pekkonen', 'Testipostaus', 'Class facilisi ullamcorper molestie. Habitant etiam hendrerit. Egestas consectetur cras amet. Per mus taciti.
 
-Tämä on toinen kappale. Myös tässä on tekstiä, joka on testin vuoksi tehty.');
+Sapien molestie auctor. Class fermentum vivamus vehicula. Sociis morbi turpis.
 
-INSERT INTO post
-(author, title, content)
-VALUES ('Keijo Kalmari', 'Otsikko', 'Tämä on testipostaus. Se sisältää tekstiä. Tämä on esimmäinen kappale.
-
-Tämä on toinen kappale. Myös tässä on tekstiä, joka on testin vuoksi tehty. Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.Myös tässä on tekstiä, joka on testin vuoksi tehty.');
+Quisque ipsum sed leo. Sodales vitae montes suspendisse. Donec euismod curae placerat.');
 
 INSERT INTO post
 (author, title, content)
-VALUES ('Sauli Niinistö', 'Päiväni presidenttinä', 'Menin kahville. Se oli hyvää. Sitten menin...');
+VALUES ('Keijo Kalmari', 'Otsikko', 'Ullamcorper taciti sit ea. Fugiat integer viverra. Laoreet ultrices velit at.
+
+Rhoncus consectetuer pariatur. Lacus natoque nisi bibendum. Aenean placerat porta class.
+
+Nullam morbi vehicula. Minim deserunt sodales. Molestie ante ea pulvinar.
+
+Nunclorem placerat ultricies lorem. Incididunt mi est esse. Officia vivamus occaecat. Mus aenean integer.');
+
+INSERT INTO post
+(author, title, content)
+VALUES ('Sauli Niinistö', 'Päiväni presidenttinä', 'Ante nascetur lectus aliquip. Dictum exercitation consectetur sodales. Reprehenderit dui mauris. Parturient vehicula lacus.
+
+Ultricies risus eros maecenas. Dui pede nullam. Mollit elit vivamus sollicitudin. Deserunt habitant himenaeos.');
 
 INSERT INTO tag
 (tagName)
