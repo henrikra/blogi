@@ -35,9 +35,6 @@ header h1 {
 	border-style: ridge;
 	border-width: medium;
 	border-color: white;
-	margin-left: -25px;
-	margin-right: -25px
-	
 }
 
 h1 {
@@ -163,8 +160,8 @@ textarea {
 }
 
 .bio-face-image img {
-	width: 100%;
-	height: auto;
+	width: auto;
+	height: 100%;
 }
 
 .bio .panel-container {
