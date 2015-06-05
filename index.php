@@ -9,6 +9,7 @@
 	</head>
 <?php 
 include_once('database.php');
+include_once('helpers.php');
 
 $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 
@@ -56,7 +57,7 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 								echo substr($tags, 0, -2);
 								?>
 						</div>
-						<p><?php echo nl2br($r->content); ?></p>
+						<p><?php echo getExcerpt(nl2br($r->content), 0, 400); ?></p>
 					</div>
 				</div><!-- post -->
 				<?php endwhile; ?>
