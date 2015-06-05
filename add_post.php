@@ -29,6 +29,10 @@
 				</div>
 				
 				<div class="form-row">
+					<input class="form-input" type="file" name="image">
+				</div>
+				
+				<div class="form-row">
 					<label class="form-label" for="tags">Tags</label><!--
 					--><select class="form-input" id="tags" name="tag">
 						<option value=""></option>
