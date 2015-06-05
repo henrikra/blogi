@@ -45,11 +45,10 @@
 							<i class="fa fa-calendar"></i>
 								<?php echo date('D j.n.Y \- H:i', strtotime($post->postDatetime)) . ' / ';?>
 								<i class="fa fa-user"></i> <?php echo $post->author; ?>
-								<?php /*
+								<?php 
 								$sql = "SELECT tag.tagName FROM tag INNER JOIN posttag ON tag.tagId = posttag.tagId WHERE posttag.postID = :postId;";
 								$stmt = $handler->prepare($sql);
 								
-								$postId = $post->postId;
 								$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
 								$stmt->execute();
 								
@@ -62,7 +61,7 @@
 								if ($counter > 0) {
 									echo substr($tags, 0, -2);
 								}
-								*/?>
+								?>
 						</div>
 						<?php $picture = !empty($post->imageLocation) ? $post->imageLocation : 'uploads/korea-field.jpg';?>
 						<a href="<?php echo $picture; ?>">

@@ -32,12 +32,16 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 			<div class="main-content">
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
-					<div class="post-image">
-						<img class="vertical-center"
-						src="<?php echo (!empty($r->imageLocation) ? $r->imageLocation : 'uploads/korea-field.jpg');?>"> <!-- If-lauseen short hand syntax -->
-					</div>
+					<a href="post.php?postId=<?php echo $r->postId;?>">
+						<div class="post-image">
+							<img class="vertical-center"
+							src="<?php echo (!empty($r->imageLocation) ? $r->imageLocation : 'uploads/korea-field.jpg');?>"> <!-- If-lauseen short hand syntax -->
+						</div>
+					</a>
 					<div class="panel-container">
-						<h2><?php echo $r->title; ?></h2>
+						<a href="post.php?postId=<?php echo $r->postId;?>">
+							<h2><?php echo $r->title; ?></h2>
+						</a>
 						<div class="post-meta">
 							<i class="fa fa-calendar"></i>
 								<?php echo date('D j.n.Y \- H:i', strtotime($r->postDatetime)) . ' / ';?>
