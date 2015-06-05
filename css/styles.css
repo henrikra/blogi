@@ -26,6 +26,12 @@ input[type="text"], textarea, select {
 	width: 100%;
 }
 
+hr {
+	height: 1px;
+	background: #ccc;
+	border: 0;
+}
+
 /*--- Header ---*/
 
 header h1 {
@@ -37,9 +43,6 @@ header h1 {
 	border-color: white;
 }
 
-h1 {
-
-}
 /*-- Navigation Pane--*/
 
 #nav {
@@ -148,6 +151,15 @@ textarea {
 .post-image img {
 	width: 100%;
 	height: auto; /*pakottaa kuvasuhteen pysymään alkuperäisenä */
+}
+
+.post h2 {
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+
+.post-meta + hr {
+	margin-top: 16px;
 }
 
 /*--- Bio ---*/
