@@ -40,6 +40,25 @@ header h1 {
 h1 {
 
 }
+/*-- Navigation Pane--*/
+
+#nav {
+	float: left;
+	border-bottom: 2px solid #ccc;
+	border-top: 2px solid #ccc;
+	list-style: none;
+}
+
+#nav li; {
+	float: left;
+}
+#nav li a; {
+	display: block;
+	padding: 8px 15px;
+	font-weight: bold;
+	color: #070;
+	border-right: 1px solid #ccc;
+}
 
 header #flag {
 	background-image: url("../img/lippu.jpg");

@@ -21,6 +21,13 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 				<div id="flag"></div>
 			</header>
 			
+			<div id="nav">
+				<li><a href="#">Etusivu</a></li>
+				<li><a href="#">Ruoka</a></li>
+				<li><a href="#">Kulttuuri</a></li>
+				<li><a href="#">Ohjelmointi</a></li>
+				<li><a href="#">Luo artikkeli</a></li>
+			</div>
 			<div class="main-content">
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
