@@ -43,6 +43,7 @@ h1 {
 /*-- Navigation Pane--*/
 
 #nav {
+	width: 100%;
 	float: left;
 	border-bottom: 2px solid #ccc;
 	border-top: 2px solid #ccc;
