@@ -29,7 +29,27 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 					</div>
 					<div class="panel-container">
 						<h2><?php echo $r->title; ?></h2>
-						<div class="post-info"><?php echo date('D j.n.Y \- H:i', strtotime($r->postDatetime)) . " / " . $r->author; ?></div>
+						<div class="post-meta">
+							<div class="post-info">
+								<?php echo date('D j.n.Y \- H:i', strtotime($r->postDatetime)) . " / " . $r->author; ?>
+							</div>
+							<div class="post-tags">
+								<?php
+								$sql = "SELECT tag.tagName FROM tag INNER JOIN posttag ON tag.tagId = posttag.tagId WHERE posttag.postID = :postId;";
+								$stmt = $handler->prepare($sql);
+								
+								$postId = $r->postId;
+								$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
+								$stmt->execute();
+								
+								$tags = '';
+								while($r2 = $stmt->fetch(PDO::FETCH_OBJ)) :
+									$tags .= $r2->tagName . ', ';
+								endwhile;
+								echo substr($tags, 0, -2);
+								?>
+							</div>
+						</div>
 						<p><?php echo nl2br($r->content); ?></p>
 					</div>
 				</div><!-- post -->
