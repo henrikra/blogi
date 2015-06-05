@@ -10,8 +10,16 @@ body {
 	margin: 0;
 }
 
-.clearfix {
+.clearfix:after {
+	content: '';
+	display: block;
 	clear: both;
+}
+
+.vertical-center {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 /*--- Header ---*/
@@ -138,13 +146,9 @@ textarea {
 .bio-face-image img {
 	width: 100%;
 	height: auto;
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
 }
 
 .bio .panel-container {
 	padding: 35px 20px 15px;
 }
-
 
