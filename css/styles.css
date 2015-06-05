@@ -6,7 +6,7 @@
 
 body {	
 	font-family: Arial, Helvetica, sans-serif; /* Font stack */
-	background-image: url("../img/backgroundtex2.png");
+	background-image: url("../img/backgroundtex3.png");
 	margin: 0;
 }
 
@@ -29,8 +29,19 @@ input[type="text"], textarea, select {
 /*--- Header ---*/
 
 header h1 {
-	text-align: center;
-	background: #A0A5DB;
+	text-align: left;
+	background-image: url("../img/bluewhite.jpg");
+	padding: 0 0 50px 0;
+	border-style: ridge;
+	border-width: medium;
+	border-color: white;
+	margin-left: -25px;
+	margin-right: -25px
+	
+}
+
+h1 {
+
 }
 
 header #flag {
