@@ -11,7 +11,7 @@
 		
 			<h1>Add a new blog post</h1>
 		
-			<form action="submit.php" method="post">
+			<form action="submit.php" method="post" enctype="multipart/form-data">
 			
 				<div class="form-row">
 					<label class="form-label" for="author">Author</label><!--
