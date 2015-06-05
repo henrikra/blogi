@@ -5,6 +5,8 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href= "css/styles.css">
 	</head>
+	
+	<?php include_once('database.php'); ?>
 
 	<body>
 		<div class="wrapper">
@@ -43,16 +45,14 @@
 				
 				<div class="form-row">
 					<label class="col-2">Tags</label>
-					<div class="col-8">
-						<label>
-							<input class="cb" type="checkbox" name="tags[]" value="1"> Food
-						</label>
-						<label>
-							<input class="cb" type="checkbox" name="tags[]" value="2"> Culture
-						</label>
-						<label>
-							<input class="cb" type="checkbox" name="tags[]" value="3"> Programming
-						</label>
+					<div class="col-8">						
+						<?php
+							$query = $handler->query('SELECT * FROM tag');
+							while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
+							<label>
+								<input class="cb" type="checkbox" name="tags[]" value="<?php echo $r->tagId; ?>"> <?php echo $r->tagName;?>
+							</label>
+							<?php endwhile; ?>
 					</div>
 				</div>
 				
