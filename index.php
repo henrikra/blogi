@@ -23,7 +23,7 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
 					<div class="post-image">
-						<img src="<?php echo (!empty($r->imageLocation) ? $r->imageLocation : 'img/korea-field.jpg');?>">
+						<img src="<?php echo (!empty($r->imageLocation) ? $r->imageLocation : 'uploads/korea-field.jpg');?>"> <!-- If-lauseen short hand syntax -->
 					</div>
 					<div class="panel-container">
 						<h2><?php echo $r->title; ?></h2>
