@@ -32,6 +32,10 @@ hr {
 	border: 0;
 }
 
+img {
+	max-width: 100%;
+}
+
 /*--- Header ---*/
 
 header h1 {
@@ -160,6 +164,12 @@ textarea {
 
 .post-meta + hr {
 	margin-top: 16px;
+}
+
+/*--- Single-Post ---*/
+
+.single-post .post-meta {
+	margin-bottom: 20px;
 }
 
 /*--- Bio ---*/
