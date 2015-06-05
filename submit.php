@@ -1,9 +1,6 @@
 <?php
 include_once('database.php');
-
-function e($string) {
-	return htmlentities($string, ENT_QUOTES, 'UTF-8', false);
-}
+include_once('helpers.php');
 
 if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
 	$sql = 'INSERT INTO post(author, title, content, imageLocation) VALUES (:author, :title, :content, :imageLocation)';
