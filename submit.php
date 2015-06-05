@@ -10,22 +10,34 @@ if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['conten
 
 	$stmt = $handler->prepare($sql);
 
-	$stmt->bindParam(':author', e($_POST['author']), PDO::PARAM_STR);
-	$stmt->bindParam(':title', e($_POST['title']), PDO::PARAM_STR);
-	$stmt->bindParam(':content', e($_POST['content']), PDO::PARAM_STR);
+	$author = e($_POST['author']);
+	$title = e($_POST['title']);
+	$content = e($_POST['content']);
 	
-	/* Preparing picture */
+	$stmt->bindParam(':author', $author, PDO::PARAM_STR);
+	$stmt->bindParam(':title', $title, PDO::PARAM_STR);
+	$stmt->bindParam(':content', $content, PDO::PARAM_STR);
 	
-	$imageName = $_FILES['image']['name'];
-	echo $imageName;
+	/*** Preparing picture ***/
 	
-	$tmp_location = $_FILES['image']['tmp_name'];
-	$wanted_location = 'img\\uploads\\' . $imageName;
-	
-	move_uploaded_file($tmp_location, $wanted_location);
-	
-	$stmt->bindParam(':imageLocation', $wanted_location, PDO::PARAM_STR);
+	/* If picture exits */
+	if(!empty($_FILES['image']['name'])) {
+		$imageName = $_FILES['image']['name'];
+		
+		$tmp_location = $_FILES['image']['tmp_name'];
+		$wanted_location = 'uploads/' . $imageName;
+		
+		move_uploaded_file($tmp_location, $wanted_location);
+		
+		$stmt->bindParam(':imageLocation', $wanted_location, PDO::PARAM_STR);
+	} else {
+		/* If picture does not exist */
+		$n = null;
+		$stmt->bindParam(':imageLocation', $n, PDO::PARAM_STR);
+		// Function bindParam wants a reference (variable) for 2nd parameter.
+	}
 
+	
 	/* Executing SQL query */
 	$stmt->execute();
 	
