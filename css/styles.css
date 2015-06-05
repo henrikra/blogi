@@ -103,7 +103,7 @@ textarea {
 }
 
 .post-image {
-	height: 200px;
+	height: 175px;
 	overflow: hidden;
 }
 
@@ -151,4 +151,15 @@ textarea {
 .bio .panel-container {
 	padding: 35px 20px 15px;
 }
+
+@media (max-width: 767px) {
+	.main-content, aside {
+		width: 100%;
+	}
+	
+	aside {
+		padding-left: 0;
+		margin-top: 20px;
+	}
+} 
 
