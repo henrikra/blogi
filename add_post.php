@@ -29,7 +29,8 @@
 				</div>
 				
 				<div class="form-row">
-					<input class="form-input" type="file" name="image">
+					<label class="form-label" for="file">Picture</label><!--
+					--><input class="form-input" type="file" id="file" name="image">
 				</div>
 				
 				<div class="form-row">
