@@ -10,8 +10,16 @@ body {
 	margin: 0;
 }
 
-.clearfix {
+.clearfix:after {
+	content: '';
+	display: block;
 	clear: both;
+}
+
+.vertical-center {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 /*--- Header ---*/
@@ -106,15 +114,13 @@ textarea {
 }
 
 .post-image {
-	height: 200px;
+	height: 175px;
 	overflow: hidden;
 }
 
 .post-image img {
 	width: 100%;
 	height: auto; /*pakottaa kuvasuhteen pysymään alkuperäisenä */
-	position: relative; 
-	bottom: 47px; /* Liittyy tällä hetkellä valittuun default-kuvaan */
 }
 
 /*--- Bio ---*/
@@ -149,13 +155,24 @@ textarea {
 .bio-face-image img {
 	width: 100%;
 	height: auto;
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
 }
 
 .bio .panel-container {
 	padding: 35px 20px 15px;
 }
 
+@media (max-width: 767px) {
+	.wrapper {
+		padding: 0 5px 10px;
+	}
+
+	.main-content, aside {
+		width: 100%;
+	}
+	
+	aside {
+		padding-left: 0;
+		margin-top: 20px;
+	}
+} 
 
