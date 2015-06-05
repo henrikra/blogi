@@ -110,8 +110,6 @@ textarea {
 .post-image img {
 	width: 100%;
 	height: auto; /*pakottaa kuvasuhteen pysymään alkuperäisenä */
-	position: relative; 
-	bottom: 47px; /* Liittyy tällä hetkellä valittuun default-kuvaan */
 }
 
 /*--- Bio ---*/
@@ -153,6 +151,10 @@ textarea {
 }
 
 @media (max-width: 767px) {
+	.wrapper {
+		padding: 0 5px 10px;
+	}
+
 	.main-content, aside {
 		width: 100%;
 	}
