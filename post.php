@@ -64,7 +64,10 @@
 								}
 								*/?>
 						</div>
-						<img src="<?php echo (!empty($post->imageLocation) ? $post->imageLocation : 'uploads/korea-field.jpg');?>"> <!-- If-lauseen short hand syntax -->
+						<?php $picture = !empty($post->imageLocation) ? $post->imageLocation : 'uploads/korea-field.jpg';?>
+						<a href="<?php echo $picture; ?>">
+							<img src="<?php echo $picture;?>">
+						</a>
 						<p><?php echo nl2br($post->content); ?></p>
 					</div>
 				</div><!-- post -->
