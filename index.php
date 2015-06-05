@@ -23,7 +23,12 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
 					<div class="post-image">
-						<img src="img/korea-field.jpg" alt="Default picture">
+						<img src="
+						<?php if(!empty($r->imageLocation)) {
+							echo str_replace('\\', '/', $r->imageLocation);
+						} else {
+							echo 'img/korea-field.jpg';
+						} ?>">
 					</div>
 					<div class="panel-container">
 						<h2><?php echo $r->title; ?></h2>
