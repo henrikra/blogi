@@ -42,14 +42,17 @@
 				</div>
 				
 				<div class="form-row">
-					<label class="col-2" for="tags">Tags</label>
+					<label class="col-2">Tags</label>
 					<div class="col-8">
-						<select id="tags" name="tag">
-							<option value=""></option>
-							<option value="ruoka">Ruoka</option>
-							<option value="kulttuuri">Kulttuuri</option>
-							<option value="ohjelmointi">Ohjelmointi</option>
-						</select>
+						<label>
+							<input class="cb" type="checkbox" name="tags[]" value="1"> Food
+						</label>
+						<label>
+							<input class="cb" type="checkbox" name="tags[]" value="2"> Culture
+						</label>
+						<label>
+							<input class="cb" type="checkbox" name="tags[]" value="3"> Programming
+						</label>
 					</div>
 				</div>
 				
@@ -58,8 +61,7 @@
 					<div class="col-8">
 						<input type="submit" value="Submit">
 					</div>
-				</div>
-				
+				</div>	
 			</form>
 			
 		</div>
