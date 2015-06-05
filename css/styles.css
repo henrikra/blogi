@@ -50,10 +50,10 @@ h1 {
 	list-style: none;
 }
 
-#nav li; {
+#nav li {
 	float: left;
 }
-#nav li a; {
+#nav li a {
 	display: block;
 	padding: 8px 15px;
 	font-weight: bold;
