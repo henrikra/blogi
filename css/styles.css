@@ -157,13 +157,22 @@ textarea {
 	height: auto; /*pakottaa kuvasuhteen pysymään alkuperäisenä */
 }
 
-.post h2 {
-	font-size: 25px;
+.post h2, .single-post h2 {
+	font-size: 26px;
 	margin-bottom: 10px;
 }
 
 .post-meta + hr {
 	margin-top: 16px;
+}
+
+.post a {
+	text-decoration: none;
+	color: #000;
+}
+
+.post a:hover {
+	color: #749931;
 }
 
 /*--- Single-Post ---*/
