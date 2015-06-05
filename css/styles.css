@@ -6,7 +6,7 @@
 
 body {	
 	font-family: Arial, Helvetica, sans-serif; /* Font stack */
-	background-image: url("../img/backgroundtex2.png");
+	background-image: url("../img/backgroundtex3.png");
 	margin: 0;
 }
 
@@ -22,11 +22,26 @@ body {
 	transform: translateY(-50%);
 }
 
+input[type="text"], textarea, select {
+	width: 100%;
+}
+
 /*--- Header ---*/
 
 header h1 {
-	text-align: center;
-	background: #A0A5DB;
+	text-align: left;
+	background-image: url("../img/bluewhite.jpg");
+	padding: 0 0 50px 0;
+	border-style: ridge;
+	border-width: medium;
+	border-color: white;
+	margin-left: -25px;
+	margin-right: -25px
+	
+}
+
+h1 {
+
 }
 
 header #flag {
@@ -54,26 +69,32 @@ aside {
 	padding: 0 15px 10px;	
 }
 
+.col-2 {
+	float: left;
+	text-align: right;
+	padding-right:15px;
+	width: 20%;
+}
+
+.col-8 {
+	float: left;
+	width: 80%;
+}
+
+.col-2, .col-8 {
+	min-height: 1px;
+}
+
 /*--- Form ---*/
 
 .form-row {
 	margin-bottom: 8px;
 }
 
-.form-row input {
-	display: inline-block;
-}
-
-.form-label {
-	display: inline-block;
-	text-align: right;
-	padding-right:15px;
-	width: 15%;
-}
-
-.form-input {
-	display: inline-block;
-	width: 85%;
+.form-row:after {
+	content: '';
+	display: block;
+	clear: both;
 }
 
 textarea {

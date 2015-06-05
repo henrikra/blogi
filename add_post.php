@@ -14,37 +14,54 @@
 			<form action="submit.php" method="post" enctype="multipart/form-data">
 			
 				<div class="form-row">
-					<label class="form-label" for="author">Author</label><!--
-					--><input class="form-input" type="text" id="author" name="author">
+					<label class="col-2" for="author">Author</label>
+					<div class="col-8">
+						<input type="text" id="author" name="author">
+					</div>
 				</div>
 								
 				<div class="form-row">
-					<label class="form-label" for="title">Title</label><!--
-					--><input class="form-input" type="text" id="title" name="title">
+					<label class="col-2" for="title">Title</label>
+					<div class="col-8">
+						<input type="text" id="title" name="title">
+					</div>
 				</div>
 				
 				<div class="form-row">
-					<label class="form-label" for="content">Content</label><!--
-					--><textarea class="form-input" rows="13" cols="70" id="content" name="content"></textarea>
+					<label class="col-2" for="content">Content</label>
+					<div class="col-8">
+						<textarea rows="13" id="content" name="content"></textarea>
+					</div>
 				</div>
 				
 				<div class="form-row">
-					<label class="form-label" for="file">Picture</label><!--
-					--><input class="form-input" type="file" id="file" name="image">
+					<label class="col-2" for="file">Picture</label>
+					<div class="col-8">
+						<input type="file" id="file" name="image">
+					</div>
 				</div>
 				
 				<div class="form-row">
-					<label class="form-label" for="tags">Tags</label><!--
-					--><input class="cb" type="checkbox" name="cb-food" value="food">Food
-					<input class="cb" type="checkbox" name="cb-culture" value="culture">Culture
-					<input class="cb" type="checkbox" name="cb-programing" value="programming">Programming
+					<label class="col-2">Tags</label>
+					<div class="col-8">
+						<label>
+							<input class="cb" type="checkbox" name="tags[]" value="1"> Food
+						</label>
+						<label>
+							<input class="cb" type="checkbox" name="tags[]" value="2"> Culture
+						</label>
+						<label>
+							<input class="cb" type="checkbox" name="tags[]" value="3"> Programming
+						</label>
+					</div>
 				</div>
 				
 				<div class="form-row">
-					<label class="form-label"></label><!--
-					--><input type="submit" value="Submit">
-				</div> 
-				
+					<label class="col-2"></label>
+					<div class="col-8">
+						<input type="submit" value="Submit">
+					</div>
+				</div>	
 			</form>
 			
 		</div>

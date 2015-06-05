@@ -41,6 +41,18 @@ if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['conten
 	/* Executing SQL query */
 	$stmt->execute();
 	
+	$postId = $handler->lastInsertId();
+	$sql = 'INSERT INTO posttag (postId, tagId) VALUES (:postId, :tag)';
+	
+	foreach($_POST['tags'] as $tag) {
+		/* Yhdistetään kysely yhteyteen*/
+		$stmt = $handler->prepare($sql);
+				
+		$stmt->bindParam(':postId', $postId, PDO::PARAM_STR);
+		$stmt->bindParam(':tag', $tag, PDO::PARAM_STR);
+		
+		$stmt->execute();
+	}
 	/* Redirecting to main page*/
 	header('Location: index.php');
 } else {
