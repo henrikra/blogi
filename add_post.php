@@ -35,18 +35,15 @@
 				
 				<div class="form-row">
 					<label class="form-label" for="tags">Tags</label><!--
-					--><select class="form-input" id="tags" name="tag">
-						<option value=""></option>
-						<option value="ruoka">Ruoka</option>
-						<option value="kulttuuri">Kulttuuri</option>
-						<option value="ohjelmointi">Ohjelmointi</option>
-					</select>
+					--><input class="cb" type="checkbox" name="cb-food" value="food">Food
+					<input class="cb" type="checkbox" name="cb-culture" value="culture">Culture
+					<input class="cb" type="checkbox" name="cb-programing" value="programming">Programming
 				</div>
 				
 				<div class="form-row">
 					<label class="form-label"></label><!--
 					--><input type="submit" value="Submit">
-				</div>
+				</div> 
 				
 			</form>
 			
