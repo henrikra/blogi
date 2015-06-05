@@ -37,7 +37,7 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 			<aside>
 				<div class="bio panel">
 					<div class="bio-background">
-						<img src="img/bio-background.jpg" alt="Bio background">
+						<img class="vertical-center" src="img/bio-background.jpg" alt="Bio background">
 					</div>
 					<div class="bio-face-image">
 						<img class="vertical-center" src="http://s14.postimg.org/jtmz3pd1d/index.jpg" alt="Erik Rantanen">
