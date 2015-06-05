@@ -66,7 +66,7 @@
 						</div>
 						<?php $picture = !empty($post->imageLocation) ? $post->imageLocation : 'uploads/korea-field.jpg';?>
 						<a href="<?php echo $picture; ?>">
-							<img src="<?php echo $picture;?>">
+							<img class="responsive-image" src="<?php echo $picture;?>">
 						</a>
 						<p><?php echo nl2br($post->content); ?></p>
 					</div>
