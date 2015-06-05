@@ -9,6 +9,7 @@ CREATE TABLE post (
 	postDatetime datetime DEFAULT current_timestamp,
 	title varchar(150) NOT NULL,
 	content text NOT NULL, /* Max lengt is 65 535 character */
+	imageLocation varchar(150),
 	PRIMARY KEY (postId)
 );
 
