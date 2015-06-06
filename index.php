@@ -15,8 +15,12 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 
 ?>
 	<body>
+		<header>
+			<h1 class="vertical-center">Korea Blog</h1>
+		</header>
 		<div class="wrapper clearfix">
-			<header>
+		
+			<!--<header>
 				<h1>Erik's Blogi</h1>
 				<a href="add_post.php">Add post</a>
 				<div id="flag"></div>
@@ -28,7 +32,7 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 				<li><a href="#">Kulttuuri</a></li>
 				<li><a href="#">Ohjelmointi</a></li>
 				<li><a href="#">Luo artikkeli</a></li>
-			</div>
+			</div>-->
 			<div class="main-content">
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">

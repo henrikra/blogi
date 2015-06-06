@@ -38,14 +38,30 @@ hr {
 
 /*--- Header ---*/
 
+header {
+	height: 150px;
+	background-image: url("../img/header-bg.jpg");
+	margin-bottom: 20px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	text-align: center;
+}
+
 header h1 {
+	color: #fff;
+	margin: 0;
+	font-size: 40px;
+}
+
+/*header h1 {
 	text-align: left;
 	background-image: url("../img/bluewhite.jpg");
 	padding: 0 0 50px 0;
 	border-style: ridge;
 	border-width: medium;
 	border-color: white;
-}
+}*/
 
 /*-- Navigation Pane--*/
 
