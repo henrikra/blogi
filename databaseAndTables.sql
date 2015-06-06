@@ -31,7 +31,7 @@ CREATE TABLE postComment(
 	commentId int AUTO_INCREMENT NOT NULL,
 	postId int NOT NULL,
 	commentAuthor varchar(100) NOT NULL,
-	commentDatetime datetime NOT NULL,
+	commentDatetime datetime NOT NULL DEFAULT current_timestamp,
 	commentContent text NOT NULL,
 	commentReply int NULL,
 	PRIMARY KEY (commentId),
