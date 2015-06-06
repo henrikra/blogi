@@ -132,7 +132,7 @@ textarea {
 }
 
 .panel-container {
-	padding: 5px 20px;
+	padding: 20px;
 	background: #fff;
 }
 
@@ -166,6 +166,7 @@ textarea {
 	margin-top: 16px;
 }
 
+
 .post a {
 	text-decoration: none;
 	color: #000;
@@ -173,6 +174,21 @@ textarea {
 
 .post a:hover {
 	color: #749931;
+}
+
+.post-more {
+	display: block;
+	text-align:center;
+	text-decoration: none;
+	padding: 10px 0;
+	color: #000;
+	border: 1px solid #b9f6ca;
+}
+
+.post-more:hover {
+	background: #b9f6ca;
+	color: #fff;
+>>>>>>> 2c617976e398e73c224b1228b52237fbf3c03c3c
 }
 
 /*--- Single-Post ---*/

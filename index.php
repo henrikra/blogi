@@ -67,6 +67,9 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 						</div>
 						<hr>
 						<p><?php echo getExcerpt(nl2br($r->content), 0, 400); ?></p>
+						<a class="post-more" href="post.php?postId=<?php echo $r->postId;?>">
+							Read more
+						</a>
 					</div>
 				</div><!-- post -->
 				<?php endwhile; ?>
