@@ -17,7 +17,7 @@ if( !empty($_POST['postId']) && !empty($_POST['commentAuthor']) && !empty($_POST
 	$stmt->bindParam(':commentContent', $commentContent, PDO::PARAM_STR);
 	
 	$stmt->execute();
-	header('Location: post.php?postId=' . $postId);
+	header('Location: post.php?postId=' . $postId . '#comments');
 	
 } else {
 	
