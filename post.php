@@ -63,13 +63,14 @@
 					<div class="panel-container">
 						<h2>Add Comment</h2>
 						<form action="add_comment.php" method="post">
+							<input type="hidden" value="<?php echo $postId; ?>" name="postId">
 							<div class="form-row">
-								<label for="comment-name">Name</label>
-								<input type="text" id="comment-name">
+								<label for="comment-author">Name</label>
+								<input type="text" id="comment-author" name="commentAuthor">
 							</div>
 							<div class="form-row">
 								<label for="comment-content">Comment</label>
-								<textarea id="comment-content" rows="5"></textarea>
+								<textarea id="comment-content" rows="5" name="commentContent"></textarea>
 							</div>
 							<input type="submit" value="Post" class="button">
 						</form>
