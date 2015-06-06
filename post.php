@@ -65,7 +65,7 @@
 						<h2>Comments</h2>
 						
 						<?php
-						$sql = "SELECT commentAuthor, commentDatetime, commentContent FROM postcomment WHERE postId = :postId;";
+						$sql = "SELECT commentAuthor, commentDatetime, commentContent FROM postcomment WHERE postId = :postId ORDER BY commentDatetime DESC;";
 						$stmt = $handler->prepare($sql);
 						
 						$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
