@@ -52,10 +52,12 @@
 								}
 								?>
 						</div>
-						<?php $picture = !empty($post->imageLocation) ? $post->imageLocation : 'uploads/korea-field.jpg';?>
-						<a href="<?php echo $picture; ?>">
-							<img class="responsive-image" src="<?php echo $picture;?>">
-						</a>
+						<?php if(!empty($post->imageLocation)) : ?>
+							<?php $picture = $post->imageLocation;?>
+							<a href="<?php echo $picture; ?>">
+								<img class="responsive-image" src="<?php echo $picture;?>">
+							</a>
+						<?php endif; ?>
 						<p><?php echo nl2br($post->content); ?></p>
 					</div>
 				</div><!-- post -->
