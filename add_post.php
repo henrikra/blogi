@@ -8,7 +8,7 @@
 	
 	<?php include_once('database.php'); ?>
 
-	<body>
+	<body class="preload">
 		<?php include_once('header.php'); ?>
 		<div class="wrapper clearfix">
 			<div class="main-content panel">

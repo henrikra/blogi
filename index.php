@@ -14,7 +14,7 @@ include_once('helpers.php');
 $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 
 ?>
-	<body>
+	<body class="preload">
 		<?php include_once('header.php'); ?>
 		<div class="wrapper clearfix">
 			<div class="main-content">

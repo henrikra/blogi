@@ -22,7 +22,7 @@
 	$post = $stmt->fetch(PDO::FETCH_OBJ);
 	?>
 	
-	<body>
+	<body class="preload">
 		<?php include_once('header.php'); ?>
 		<div class="wrapper clearfix">
 			<div class="main-content">
