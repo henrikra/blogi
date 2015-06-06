@@ -4,9 +4,9 @@ include_once('database.php');
 include_once('helpers.php');
 
 if( !empty($_POST['postId']) && !empty($_POST['commentAuthor']) && !empty($_POST['commentContent'])){
-	$sql = "INSERT INTO postcomment postId, commentAuthor, commentContent VALUES (:postId, :commentAuthor, :commentContent)";
+	$sql = "INSERT INTO postcomment (postId, commentAuthor, commentContent) VALUES (:postId, :commentAuthor, :commentContent);";
 	
-	$stmt = $handler->$prepare($sql);
+	$stmt = $handler->prepare($sql);
 	
 	$postId = e($_POST['postId']);
 	$commentAuthor = e($_POST['commentAuthor']);
@@ -17,12 +17,13 @@ if( !empty($_POST['postId']) && !empty($_POST['commentAuthor']) && !empty($_POST
 	$stmt->bindParam(':commentContent', $commentContent, PDO::PARAM_STR);
 	
 	$stmt->execute();
+	header('Location: post.php?postId=' . $postId);
 	
 } else {
 	
 	echo 'You have to insert your name and comment';
+	header('Location: post.php?postId=' . $postId . '#add-comment');
 	
 }
 
-//header('Location: post.php?');
 ?>
