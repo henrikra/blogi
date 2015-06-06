@@ -34,7 +34,7 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 						</div>
 						<div class="post-meta">
 							<i class="fa fa-calendar"></i>
-								<?php echo date('D j.n.Y \- H:i', strtotime($r->postDatetime)) . ' / ';?>
+								<?php echo formatDate($r->postDatetime) . ' / ';?>
 								<i class="fa fa-user"></i> <?php echo $r->author; ?>
 								<?php
 								$sql = "SELECT tag.tagName FROM tag INNER JOIN posttag ON tag.tagId = posttag.tagId WHERE posttag.postID = :postId;";

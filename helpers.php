@@ -17,5 +17,10 @@ function getExcerpt($str, $startPos=0, $maxLength=100) {
 	return $excerpt;
 }
 
+function formatDate($date) {
+	//return date('D j.n.Y \- H:i', strtotime($r->postDatetime));
+	return date('D j.n.Y \- H:i', strtotime($date));
+}
+
 
 ?>
