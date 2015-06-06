@@ -42,7 +42,6 @@ header {
 	text-align: center;
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 20px;
-	background: linear-gradient(#333, #444);
 }
 
 header .header-background {
@@ -61,6 +60,7 @@ header h1 {
 
 header nav {
 	height: 50px;
+	background: linear-gradient(#222, #333);
 }
 
 .nav-content {
