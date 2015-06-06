@@ -3,7 +3,9 @@
 		<div class="wrapper">
 			<ul class="nav-content clearfix">
 				<li class="site-logo">
-					<a class="vertical-center" href="index.php">Main logo</a>
+					<a class="vertical-center" href="index.php">
+						Korea Blog
+					</a>
 				</li>
 				<li class="menu-item"><a class="vertical-center" href="">About me</a></li>
 				<li class="menu-item"><a class="vertical-center" href="add_post.php">Add post</a></li>
