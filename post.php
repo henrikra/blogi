@@ -59,6 +59,35 @@
 					</div>
 				</div><!-- post -->
 				
+				<div id="comments" class="panel">
+					<div class="panel-container">
+						<h2>Comments</h2>
+						<div class="comment">
+							<div class="comment-meta">
+								<span class="comment-author">
+									<i class="fa fa-user"></i> Pekka Pekkonen
+								</span>
+								<span class="comment-date">&bull; 21.5.2015</span>
+							</div>
+							<div class="comment-content">
+								Fugiat nostra odio sociis irure aenean. At ullamco porttitor. Nisl egestas mauris ullamcorper quam penatibus. Varius eget cupidatat ut duis.
+							</div>
+						</div>
+						<hr>
+						<div class="comment">
+							<div class="comment-meta">
+								<span class="comment-author">
+									<i class="fa fa-user"></i> Pekka Pekkonen
+								</span>
+								<span class="comment-date">&bull; 21.5.2015</span>
+							</div>
+							<div class="comment-content">
+								Fugiat nostra odio sociis irure aenean. At ullamco porttitor. Nisl egestas mauris ullamcorper quam penatibus. Varius eget cupidatat ut duis.
+							</div>
+						</div>
+					</div>
+				</div><!-- comments -->
+				
 				<div class="panel">
 					<div class="panel-container">
 						<h2>Add Comment</h2>
@@ -75,7 +104,8 @@
 							<input type="submit" value="Post" class="button">
 						</form>
 					</div>
-				</div>
+				</div><!-- Add comment -->
+			
 			</div><!-- main-content -->
 			<?php include_once('sidebar.php'); ?>
 		</div><!-- wrapper -->

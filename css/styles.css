@@ -303,6 +303,20 @@ textarea {
 	padding: 35px 20px 15px;
 }
 
+/*--- Comments ---*/
+
+.comment .comment-meta {
+	margin-bottom: 5px;
+}
+
+.comment .comment-author {
+	font-size: 20px;
+}
+
+.comment .comment-date {
+	color: #666;
+}
+
 /*--- Footer ---*/
 
 footer {
