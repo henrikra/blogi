@@ -3,12 +3,13 @@
 include_once('database.php');
 include_once('helpers.php');
 
+$postId = e($_POST['postId']);
+
 if( !empty($_POST['postId']) && !empty($_POST['commentAuthor']) && !empty($_POST['commentContent'])){
 	$sql = "INSERT INTO postcomment (postId, commentAuthor, commentContent) VALUES (:postId, :commentAuthor, :commentContent);";
 	
 	$stmt = $handler->prepare($sql);
 	
-	$postId = e($_POST['postId']);
 	$commentAuthor = e($_POST['commentAuthor']);
 	$commentContent = e($_POST['commentContent']);
 	
