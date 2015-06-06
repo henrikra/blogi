@@ -132,7 +132,7 @@ textarea {
 }
 
 .panel-container {
-	padding: 20px;
+	padding: 1px 20px 20px;
 	background: #fff;
 }
 
@@ -172,23 +172,22 @@ textarea {
 	color: #000;
 }
 
-.post a:hover {
-	color: #749931;
+.post-title a:hover {
+	color: #00b0ff;
 }
 
-.post-more {
+.post .post-more {
 	display: block;
 	text-align:center;
 	text-decoration: none;
 	padding: 10px 0;
-	color: #000;
-	border: 1px solid #b9f6ca;
+	color: #00b0ff;
+	border: 1px solid #00b0ff;
 }
 
 .post-more:hover {
-	background: #b9f6ca;
-	color: #fff;
->>>>>>> 2c617976e398e73c224b1228b52237fbf3c03c3c
+	background: #00b0ff;
+	color: #FFF;
 }
 
 /*--- Single-Post ---*/
