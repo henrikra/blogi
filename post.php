@@ -88,10 +88,10 @@
 					</div>
 				</div><!-- comments -->
 				
-				<div class="panel">
+				<div id="add-comment" class="panel">
 					<div class="panel-container">
 						<h2>Add Comment</h2>
-						<form action="add_comment.php" method="post">
+						<form action="submit_comment.php" method="post">
 							<input type="hidden" value="<?php echo $postId; ?>" name="postId">
 							<div class="form-row">
 								<label for="comment-author">Name</label>
