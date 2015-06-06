@@ -313,6 +313,21 @@ textarea {
 	font-size: 19px;
 }
 
+.comment .reply-btn {
+	color: #888;
+	display: inline-block;
+	margin-top: 5px;
+}
+
+.comment .reply-btn:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.comment .reply-btn + #add-comment {
+	margin-top: 10px;
+}
+
 .comment .comment-date {
 	color: #666;
 }

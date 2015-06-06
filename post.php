@@ -67,7 +67,7 @@
 						<h2>Comments</h2>
 						
 						<?php
-						$sql = "SELECT commentAuthor, commentDatetime, commentContent FROM postcomment WHERE postId = :postId ORDER BY commentDatetime DESC;";
+						$sql = "SELECT commentId, commentAuthor, commentDatetime, commentContent FROM postcomment WHERE postId = :postId ORDER BY commentDatetime DESC;";
 						$stmt = $handler->prepare($sql);
 						
 						$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
@@ -86,6 +86,7 @@
 									<span class="comment-date">&bull; <?php echo formatDate($r->commentDatetime); ?></span>
 								</div>
 								<div class="comment-content"><?php echo $r->commentContent; ?></div>
+								<a class="reply-btn" data-reply-id="<?php echo $r->commentId; ?>">Vastaa</a>
 							</div>
 						<?php $counter++;
 						endwhile;
@@ -97,6 +98,7 @@
 					<div class="panel-container">
 						<h2>Add Comment</h2>
 						<form action="submit_comment.php" method="post">
+							<input type='hidden' name="commentReply" value="">
 							<input type="hidden" value="<?php echo $postId; ?>" name="postId">
 							<div class="form-row">
 								<label for="comment-author">Name</label>
