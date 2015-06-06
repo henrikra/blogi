@@ -15,38 +15,8 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 
 ?>
 	<body>
-		<header>
-			<nav>
-				<div class="wrapper">
-					<ul class="nav-content clearfix">
-						<li class="site-logo">
-							<a class="vertical-center" href="index.php">Main logo</a>
-						</li>
-						<li class="menu-item"><a class="vertical-center" href="">About me</a></li>
-						<li class="menu-item"><a class="vertical-center" href="add_post.php">Add post</a></li>
-						<li class="menu-item active"><a class="vertical-center" href="index.php">Home</a></li>
-					</ul>
-				</div>
-			</nav>
-			<div class="header-background">
-				<h1 class="vertical-center">Korea Blog</h1>
-			</div>
-		</header>
+		<?php include_once('header.php'); ?>
 		<div class="wrapper clearfix">
-		
-			<!--<header>
-				<h1>Erik's Blogi</h1>
-				<a href="add_post.php">Add post</a>
-				<div id="flag"></div>
-			</header>
-			
-			<div id="nav">
-				<li><a href="#">Etusivu</a></li>
-				<li><a href="#">Ruoka</a></li>
-				<li><a href="#">Kulttuuri</a></li>
-				<li><a href="#">Ohjelmointi</a></li>
-				<li><a href="#">Luo artikkeli</a></li>
-			</div>-->
 			<div class="main-content">
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">

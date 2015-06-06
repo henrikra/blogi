@@ -23,20 +23,8 @@
 	?>
 	
 	<body>
+		<?php include_once('header.php'); ?>
 		<div class="wrapper clearfix">
-			<header>
-				<h1>Erik's Blogi</h1>
-				<a href="add_post.php">Add post</a>
-				<div id="flag"></div>
-			</header>
-			
-			<div id="nav">
-				<li><a href="#">Etusivu</a></li>
-				<li><a href="#">Ruoka</a></li>
-				<li><a href="#">Kulttuuri</a></li>
-				<li><a href="#">Ohjelmointi</a></li>
-				<li><a href="#">Luo artikkeli</a></li>
-			</div>
 			<div class="main-content">
 				<div class="single-post panel">
 					<div class="panel-container">
