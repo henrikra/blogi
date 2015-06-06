@@ -69,6 +69,7 @@
 			</div> <!-- main content -->
 			<?php include_once('sidebar.php'); ?>
 		</div>
+		<?php include_once('footer.php'); ?>
 	</body>
 	
 </html>

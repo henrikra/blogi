@@ -180,7 +180,7 @@ aside {
 	margin-top: 4px;
 }
 
-.form-row label {
+.form-row > label {
 	font-weight: bold;
 }
 
@@ -301,6 +301,18 @@ textarea {
 
 .bio .panel-container {
 	padding: 35px 20px 15px;
+}
+
+/*--- Footer ---*/
+
+footer {
+	background: #333;
+	color: #ccc;
+	margin-top: 20px;
+}
+
+footer .footer-content {
+	padding: 10px 0;
 }
 
 @media (max-width: 767px) {

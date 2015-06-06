@@ -66,6 +66,7 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 			</div><!-- main-content -->
 			<?php include_once('sidebar.php'); ?>
 		</div><!-- wrapper -->
+		<?php include_once('footer.php'); ?>
 	</body>
 
 </html>

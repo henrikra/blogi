@@ -14,4 +14,3 @@
 		</div><!-- panel-container -->
 	</div>
 </aside>
-<script src="js/main.js"></script>
