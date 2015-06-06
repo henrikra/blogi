@@ -132,7 +132,7 @@ textarea {
 }
 
 .panel-container {
-	padding: 5px 20px;
+	padding: 20px;
 	background: #fff;
 }
 
@@ -164,6 +164,20 @@ textarea {
 
 .post-meta + hr {
 	margin-top: 16px;
+}
+
+.post-more {
+	display: block;
+	text-align:center;
+	text-decoration: none;
+	padding: 10px 0;
+	color: #000;
+	border: 1px solid #b9f6ca;
+}
+
+.post-more:hover {
+	background: #b9f6ca;
+	color: #fff;
 }
 
 /*--- Single-Post ---*/
