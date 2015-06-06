@@ -20,12 +20,13 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 			<div class="main-content">
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
-					<a href="post.php?postId=<?php echo $r->postId;?>">
+					<?php if(!empty($r->imageLocation)) :?><!-- If-lauseen short hand syntax -->
+					<a href="post.php?postId=<?php echo $r->postId;?>"> 
 						<div class="post-image">
-							<img class="vertical-center"
-							src="<?php echo (!empty($r->imageLocation) ? $r->imageLocation : 'uploads/korea-field.jpg');?>"> <!-- If-lauseen short hand syntax -->
+							<img class="vertical-center" src="<?php echo $r->imageLocation;?>"> 
 						</div>
 					</a>
+					<?php endif; ?>
 					<div class="panel-container">
 						<div class="post-title">
 							<a href="post.php?postId=<?php echo $r->postId;?>">
