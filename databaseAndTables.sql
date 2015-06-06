@@ -27,6 +27,17 @@ CREATE TABLE postTag(
 	FOREIGN KEY (tagId) REFERENCES tag(tagId)
 );
 
+CREATE TABLE postComment(
+	commentId int AUTO_INCREMENT NOT NULL,
+	postId int NOT NULL,
+	commentAuthor varchar(100) NOT NULL,
+	commentDatetime datetime NOT NULL,
+	commentContent text NOT NULL,
+	commentReply int NULL,
+	PRIMARY KEY (commentId),
+	FOREIGN KEY (commentReply) REFERENCES postComment(commentId)
+);
+
 INSERT INTO post
 (author, title, content)
 VALUES ('Pekka Pekkonen', 'Testipostaus', 'Class facilisi ullamcorper molestie. Habitant etiam hendrerit. Egestas consectetur cras amet. Per mus taciti.
