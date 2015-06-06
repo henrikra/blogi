@@ -10,6 +10,7 @@
 	
 	<?php 
 	include_once('database.php');
+	include_once('helpers.php');
 	
 	
 	$sql = "SELECT * FROM post WHERE postId = :postId";
@@ -62,29 +63,31 @@
 				<div id="comments" class="panel">
 					<div class="panel-container">
 						<h2>Comments</h2>
-						<div class="comment">
-							<div class="comment-meta">
-								<span class="comment-author">
-									<i class="fa fa-user"></i> Pekka Pekkonen
-								</span>
-								<span class="comment-date">&bull; 21.5.2015</span>
+						
+						<?php
+						$sql = "SELECT commentAuthor, commentDatetime, commentContent FROM postcomment WHERE postId = :postId;";
+						$stmt = $handler->prepare($sql);
+						
+						$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
+						$stmt->execute();
+						?>
+						<?php
+						$counter = 0;
+						while($r = $stmt->fetch(PDO::FETCH_OBJ)) : 
+							echo $counter > 0 ? '<hr>' : '';
+							?>
+							<div class="comment">
+								<div class="comment-meta">
+									<span class="comment-author">
+										<i class="fa fa-user"></i> <?php echo $r->commentAuthor; ?>
+									</span>
+									<span class="comment-date">&bull; <?php echo formatDate($r->commentDatetime); ?></span>
+								</div>
+								<div class="comment-content"><?php echo $r->commentContent; ?></div>
 							</div>
-							<div class="comment-content">
-								Fugiat nostra odio sociis irure aenean. At ullamco porttitor. Nisl egestas mauris ullamcorper quam penatibus. Varius eget cupidatat ut duis.
-							</div>
-						</div>
-						<hr>
-						<div class="comment">
-							<div class="comment-meta">
-								<span class="comment-author">
-									<i class="fa fa-user"></i> Pekka Pekkonen
-								</span>
-								<span class="comment-date">&bull; 21.5.2015</span>
-							</div>
-							<div class="comment-content">
-								Fugiat nostra odio sociis irure aenean. At ullamco porttitor. Nisl egestas mauris ullamcorper quam penatibus. Varius eget cupidatat ut duis.
-							</div>
-						</div>
+						<?php $counter++;
+						endwhile;
+						echo $counter < 1 ? 'Be first to comment this post!' : ''; ?>
 					</div>
 				</div><!-- comments -->
 				
