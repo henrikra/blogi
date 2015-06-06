@@ -62,7 +62,7 @@
 				<div class="panel">
 					<div class="panel-container">
 						<h2>Add Comment</h2>
-						<form action="add_comment.php" method="post">
+						<form action="submit_comment.php" method="post">
 							<div class="form-row">
 								<label for="comment-name">Name</label>
 								<input type="text" id="comment-name">
