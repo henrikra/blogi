@@ -61,7 +61,7 @@
 						<div class="form-row">
 							<label class="col-2"></label>
 							<div class="col-8">
-								<input type="submit" value="Submit">
+								<input class="button" type="submit" value="Submit">
 							</div>
 						</div>	
 					</form>
