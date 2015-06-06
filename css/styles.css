@@ -42,6 +42,7 @@ header {
 	text-align: center;
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 20px;
+	background: linear-gradient(#333, #444);
 }
 
 header .header-background {
@@ -55,28 +56,48 @@ header .header-background {
 header h1 {
 	color: #fff;
 	margin: 0;
-	font-size: 40px;
+	font-size: 50px;
 }
 
 header nav {
-	height: 40px;
+	height: 50px;
 }
 
-nav li {
+.nav-content {
 	list-style:none;
+	margin: 0;
+	padding: 0;
 }
 
-nav li a {
+.nav-content li {
+	height: 50px;
+}
+
+.nav-content li a {
 	text-decoration: none;
+	color: #ccc;
+	display: block;
 }
 
-nav .site-logo {
+.nav-content li a:hover {
+	color: #fff;
+}
+
+.nav-content .site-logo {
 	float: left;
 }
 
-nav .menu-item {
+.nav-content .menu-item {
 	float: right;
-	padding: 5px 10px;
+	padding: 0 15px;
+}
+
+.nav-content .menu-item.active {
+	background: linear-gradient(#000, #222);
+}
+
+.nav-content .menu-item.active a {
+	color: #fff;
 }
 
 /*header h1 {

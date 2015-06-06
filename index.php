@@ -16,16 +16,18 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 ?>
 	<body>
 		<header>
-			<div class="wrapper">
-				<nav class="clearfix">
-					<li class="site-logo vertical-center">
-						<a href="index.php">Main logo</a>
-					</li>
-					<li class="menu-item vertical-center"><a href="">About me</a></li>
-					<li class="menu-item vertical-center"><a href="add_post.php">Add post</a></li>
-					<li class="menu-item vertical-center"><a href="index.php">Home</a></li>
-				</nav>
-			</div>
+			<nav>
+				<div class="wrapper">
+					<ul class="nav-content clearfix">
+						<li class="site-logo">
+							<a class="vertical-center" href="index.php">Main logo</a>
+						</li>
+						<li class="menu-item"><a class="vertical-center" href="">About me</a></li>
+						<li class="menu-item"><a class="vertical-center" href="add_post.php">Add post</a></li>
+						<li class="menu-item active"><a class="vertical-center" href="index.php">Home</a></li>
+					</ul>
+				</div>
+			</nav>
 			<div class="header-background">
 				<h1 class="vertical-center">Korea Blog</h1>
 			</div>
