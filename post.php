@@ -58,6 +58,23 @@
 						<p><?php echo nl2br($post->content); ?></p>
 					</div>
 				</div><!-- post -->
+				
+				<div class="panel">
+					<div class="panel-container">
+						<h2>Add Comment</h2>
+						<form action="add_comment.php" method="post">
+							<div class="form-row">
+								<label for="comment-name">Name</label>
+								<input type="text" id="comment-name">
+							</div>
+							<div class="form-row">
+								<label for="comment-content">Comment</label>
+								<textarea id="comment-content" rows="5"></textarea>
+							</div>
+							<input type="submit" value="Post" class="button">
+						</form>
+					</div>
+				</div>
 			</div><!-- main-content -->
 			<?php include_once('sidebar.php'); ?>
 		</div><!-- wrapper -->

@@ -36,6 +36,24 @@ hr {
 	max-width: 100%;
 }
 
+/*--- Buttons ---*/
+
+.button {
+	border: 1px solid #ccc;
+	background: #fff;
+	padding: 6px 15px;
+}
+
+.button:hover {
+	background: #ededed;
+	border-color: #a8a8a8;
+	cursor: pointer;
+}
+
+.button:active {
+	background: #e0e0e0;
+}
+
 /*--- Header ---*/
 
 header {
@@ -78,7 +96,7 @@ header nav {
 
 .nav-content li a {
 	text-decoration: none;
-	color: #ccc;
+	color: #888;
 	display: block;
 }
 
@@ -141,6 +159,10 @@ aside {
 
 .form-row {
 	margin-bottom: 8px;
+}
+
+.form-row input, textarea {
+	margin-top: 4px;
 }
 
 .form-row:after {
