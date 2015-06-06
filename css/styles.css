@@ -58,6 +58,8 @@ header h1 {
 	font-size: 50px;
 }
 
+/*--- Navbar ---*/
+
 header nav {
 	height: 50px;
 	background: linear-gradient(#222, #333);
@@ -71,6 +73,7 @@ header nav {
 
 .nav-content li {
 	height: 50px;
+	padding: 0 15px;
 }
 
 .nav-content li a {
@@ -89,7 +92,6 @@ header nav {
 
 .nav-content .menu-item {
 	float: right;
-	padding: 0 15px;
 }
 
 .nav-content .menu-item.active {
