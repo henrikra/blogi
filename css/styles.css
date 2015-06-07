@@ -425,6 +425,10 @@ footer .footer-content {
 	font-size: 19px;
 }
 
+.thumbnail {
+	max-width: 150px;
+}
+
 @media (max-width: 767px) {
 	.wrapper {
 		padding: 0 5px 10px;
