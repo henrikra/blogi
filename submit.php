@@ -7,11 +7,33 @@ include_once('helpers.php');
 $errors = [];
 $tags = [];
 
+
 /* testaan, tuleeko pyyntö formilta */
 if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content'])) {
 	$author = e($_POST['author']);
 	$title = e($_POST['title']);
 	$content = e($_POST['content']);
+	$imageName = null;
+	
+	if (!empty($_POST['imageNameHidden'])) {
+		$imageName = $_POST['imageNameHidden'];
+		if (!empty($_FILES['image']['name'])) {
+			$imageName = null;
+		}
+	}
+	
+	/*** Preparing picture ***/
+	
+	/* If picture exits */
+	if(!isset($imageName) && !empty($_FILES['image']['name'])) {
+		$uploadedImageName = $_FILES['image']['name'];
+		
+		$tmp_location = $_FILES['image']['tmp_name'];
+		$wanted_location = 'uploads/' . $uploadedImageName;
+		
+		move_uploaded_file($tmp_location, $wanted_location);
+		$imageName = $uploadedImageName;
+	}
 	
 	foreach($_POST['tags'] as $tag => $value) {
 			/* Lisätään $tags-taulukkoon kaikki alkiot, jota POST taulussa on */
@@ -23,13 +45,11 @@ if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content']
 		'author' => $author,
 		'title' => $title,
 		'content' => $content,
-		'tags' => $tags
+		'tags' => $tags,
+		'imageName' => $imageName
 	];
 	
 }
-
-
-
 
 if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tags'])) {
 	$sql = 'INSERT INTO post(author, title, content, imageLocation) VALUES (:author, :title, :content, :imageLocation)';
@@ -40,25 +60,17 @@ if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['conten
 	$stmt->bindParam(':title', $title, PDO::PARAM_STR);
 	$stmt->bindParam(':content', $content, PDO::PARAM_STR);
 	
-	/*** Preparing picture ***/
-	
-	/* If picture exits */
 	if(!empty($_FILES['image']['name'])) {
-		$imageName = $_FILES['image']['name'];
-		
-		$tmp_location = $_FILES['image']['tmp_name'];
-		$wanted_location = 'uploads/' . $imageName;
-		
-		move_uploaded_file($tmp_location, $wanted_location);
-		
 		$stmt->bindParam(':imageLocation', $wanted_location, PDO::PARAM_STR);
+	} else if (isset($imageName) && empty($_FILES['image']['name'])) {
+		$imageName = 'uploads/' . $imageName;
+		$stmt->bindParam(':imageLocation', $imageName, PDO::PARAM_STR);
 	} else {
 		/* If picture does not exist */
 		$n = null;
 		$stmt->bindParam(':imageLocation', $n, PDO::PARAM_STR);
 		// Function bindParam wants a reference (variable) for 2nd parameter.
 	}
-
 	
 	/* Executing SQL query */
 	$stmt->execute();
