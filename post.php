@@ -59,7 +59,7 @@
 							</a>
 						<?php endif; ?>
 						<p><?php echo nl2br($post->content); ?></p>
-					</div>
+					</div><!-- panel container -->
 				</div><!-- post -->
 				
 				<div id="comments" class="panel">
