@@ -3,6 +3,7 @@
 	<head>
 		<title>Add a new blog post</title>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href= "css/styles.css">
 	</head>
 	
@@ -22,7 +23,10 @@
 				<div class="panel-container">
 					<h1>Add a new blog post</h1>
 					<?php if(!empty($errors)) :?>
-						<div class="alerts">
+						<div class="error">
+							<div class="error-title">
+								<i class="fa fa-exclamation-triangle"></i> Huomioi nämä
+							</div>
 							<ul><li> <?php echo implode('</li><li>', $errors);?> </li></ul>
 						</div>
 					<?php endif; ?>

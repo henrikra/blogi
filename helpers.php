@@ -86,7 +86,6 @@ function getTags($postId) {
 	$sql = "SELECT * FROM tag INNER JOIN posttag ON tag.tagId = posttag.tagId WHERE posttag.postID = :postId;";
 	$stmt = $handler->prepare($sql);
 	
-	
 	$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
 	$stmt->execute();
 	

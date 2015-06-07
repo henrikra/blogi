@@ -414,6 +414,17 @@ footer .footer-content {
 	display: block;
 }
 
+.error {
+	border: 1px solid red;
+	background: #e50000;
+	padding: 15px;
+	color: #fff;
+}
+
+.error .error-title {
+	font-size: 19px;
+}
+
 @media (max-width: 767px) {
 	.wrapper {
 		padding: 0 5px 10px;
