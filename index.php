@@ -11,13 +11,41 @@
 include_once('database.php');
 include_once('helpers.php');
 
-$query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
-
 ?>
 	<body class="preload">
 		<?php include_once('header.php'); ?>
 		<div class="wrapper clearfix">
 			<div class="main-content">
+			
+				<?php
+				if(isset($_GET['tagId'])) {
+					$query = $handler->prepare('SELECT * FROM tag WHERE tagId = :tagId;');
+					$tagId = $_GET['tagId'];
+					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
+					$query->execute();
+					$r = $query->fetch(PDO::FETCH_OBJ);
+				}
+				?>
+				
+				<?php if (isset($_GET['tagId'])) : ?>
+				<div class="panel">
+					<div class="panel-container search-result-container">
+						Näytetään postaukset, joissa on tagi <span class="search-item"><?php echo $r->tagName; ?></span>
+						<a href="index.php">Näytä kaikki</a>
+					</div>
+				</div>
+				<?php endif; ?>
+				
+				<?php
+				if(isset($_GET['tagId'])) {
+					$query = $handler->prepare('SELECT * FROM post INNER JOIN posttag ON post.postId = posttag.postId WHERE posttag.tagId = :tagId ORDER BY postDatetime DESC;');
+					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
+					$query->execute();
+				} else {
+					$query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
+				}
+
+				?>
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
 					<?php if(!empty($r->imageLocation)) :?><!-- If-lauseen short hand syntax -->
