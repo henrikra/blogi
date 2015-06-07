@@ -66,7 +66,7 @@ include_once('helpers.php');
 								<?php echo formatDate($r->postDatetime) . ' / ';?>
 								<i class="fa fa-user"></i> <?php echo $r->author; ?>
 								<?php
-								$sql = "SELECT tag.tagName FROM tag INNER JOIN posttag ON tag.tagId = posttag.tagId WHERE posttag.postID = :postId;";
+								$sql = "SELECT * FROM tag INNER JOIN posttag ON tag.tagId = posttag.tagId WHERE posttag.postID = :postId;";
 								$stmt = $handler->prepare($sql);
 								
 								$postId = $r->postId;
@@ -76,7 +76,7 @@ include_once('helpers.php');
 								$tags = ' / <i class="fa fa-tags"></i> ';
 								$counter = 0;
 								while($r2 = $stmt->fetch(PDO::FETCH_OBJ)) :
-									$tags .= $r2->tagName . ', ';
+									$tags .= '<a href="index.php?tagId=' . $r2->tagId . '">' . $r2->tagName . '</a>, ';
 									$counter++;
 								endwhile;
 								if ($counter > 0) {
