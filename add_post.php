@@ -56,18 +56,18 @@
 						</div>
 						
 						<div class="form-row">
-							<label class="col-2" for="file"><?php echo !empty($fields['filePath']) ? 'Change picture' : 'Picture'; ?></label>
+							<label class="col-2" for="file"><?php echo !empty($fields['imageName']) ? 'Change picture' : 'Picture'; ?></label>
 							<div class="col-8">
 								<input type="file" id="file" name="image">
-								<input type="hidden" name="imagePath" value="<?php echo !empty($fields['filePath']) ? $fields['filePath'] : ''; ?>">
+								<input type="hidden" name="imageNameHidden" value="<?php echo !empty($fields['imageName']) ? $fields['imageName'] : ''; ?>">
 								
 							</div>
 						</div>
-						<?php if (!empty($fields['filePath'])) : ?>
+						<?php if (!empty($fields['imageName'])) : ?>
 						<div class="form-row">
 							<label class="col-2">Current picture</label>
 							<div class="col-8">
-									<img class="thumbnail" src="uploads/<?php echo $fields['filePath']; ?>" alt="image-thumbnail">
+									<img class="thumbnail" src="uploads/<?php echo $fields['imageName']; ?>" alt="image-thumbnail">
 							</div>
 						</div>
 						<?php endif; ?>

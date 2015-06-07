@@ -13,26 +13,26 @@ if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content']
 	$author = e($_POST['author']);
 	$title = e($_POST['title']);
 	$content = e($_POST['content']);
-	$filePath = null;
+	$imageName = null;
 	
-	if (!empty($_POST['imagePath'])) {
-		$filePath = $_POST['imagePath'];
+	if (!empty($_POST['imageNameHidden'])) {
+		$imageName = $_POST['imageNameHidden'];
 		if (!empty($_FILES['image']['name'])) {
-			$filePath = null;
+			$imageName = null;
 		}
 	}
 	
 	/*** Preparing picture ***/
 	
 	/* If picture exits */
-	if(!isset($filePath) && !empty($_FILES['image']['name'])) {
-		$imageName = $_FILES['image']['name'];
+	if(!isset($imageName) && !empty($_FILES['image']['name'])) {
+		$uploadedImageName = $_FILES['image']['name'];
 		
 		$tmp_location = $_FILES['image']['tmp_name'];
-		$wanted_location = 'uploads/' . $imageName;
+		$wanted_location = 'uploads/' . $uploadedImageName;
 		
 		move_uploaded_file($tmp_location, $wanted_location);
-		$filePath = $imageName;
+		$imageName = $uploadedImageName;
 	}
 	
 	foreach($_POST['tags'] as $tag => $value) {
@@ -46,7 +46,7 @@ if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content']
 		'title' => $title,
 		'content' => $content,
 		'tags' => $tags,
-		'filePath' => $filePath
+		'imageName' => $imageName
 	];
 	
 }
@@ -62,9 +62,9 @@ if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['conten
 	
 	if(!empty($_FILES['image']['name'])) {
 		$stmt->bindParam(':imageLocation', $wanted_location, PDO::PARAM_STR);
-	} else if (isset($filePath) && empty($_FILES['image']['name'])) {
-		$filePath = 'uploads/' . $filePath;
-		$stmt->bindParam(':imageLocation', $filePath, PDO::PARAM_STR);
+	} else if (isset($imageName) && empty($_FILES['image']['name'])) {
+		$imageName = 'uploads/' . $imageName;
+		$stmt->bindParam(':imageLocation', $imageName, PDO::PARAM_STR);
 	} else {
 		/* If picture does not exist */
 		$n = null;
