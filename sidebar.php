@@ -13,4 +13,12 @@
 			</div>
 		</div><!-- panel-container -->
 	</div>
+	<div class="panel">
+		<div class="panel-header">
+			<h2>Tags</h2>
+		</div>
+		<a href="" class="tag">Food</a>
+		<a href="" class="tag">Culture</a>
+		<a href="" class="tag">Programming</a>
+	</div>
 </aside>

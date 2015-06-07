@@ -1,4 +1,5 @@
 (function() {
+	// Estetään transitio-animaatiot ennen kuin DOM on latautunut
 	window.onload = function () {
 		var body = document.getElementsByTagName('body')[0];
 		body.className = '';
