@@ -9,7 +9,7 @@
 	
 	var replyToComment = function(event) {
 		var targetElement = event.target || event.srcElement;
-		targetElement.parentNode.appendChild(document.getElementById('add-comment'));
+		targetElement.parentNode.insertBefore(document.getElementById('add-comment'), targetElement.nextSibling);
 		document.getElementsByName('commentReply')[0].value = targetElement.getAttribute('data-reply-id');
 		event.preventDefault();
 	};

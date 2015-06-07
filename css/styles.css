@@ -306,7 +306,7 @@ textarea {
 /*--- Comments ---*/
 
 .comment .comment-meta {
-	margin-bottom: 5px;
+	margin-bottom: 2px;
 }
 
 .comment .comment-author {
@@ -330,6 +330,26 @@ textarea {
 
 .comment .comment-date {
 	color: #666;
+}
+
+#comments .panel-container > .comment .comment-replies {
+	margin-top: 10px;
+	padding-left: 5px;
+	margin-left: 30px;
+	border-left: 1px solid #ccc;
+}
+
+.comment-replies .comment .comment-replies, .comment-replies .comment + .comment {
+	margin-top: 10px;
+}
+
+#comments .panel-container > .comment + .comment {
+	margin-top: 25px;
+}
+
+.reply-to {
+	color: #666;
+	font-size: 15px;
 }
 
 /*--- Footer ---*/

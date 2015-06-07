@@ -65,30 +65,23 @@
 				<div id="comments" class="panel">
 					<div class="panel-container">
 						<h2>Comments</h2>
-						
 						<?php
-						$sql = "SELECT commentId, commentAuthor, commentDatetime, commentContent FROM postcomment WHERE postId = :postId ORDER BY commentDatetime DESC;";
+						$commentLevel = 0;
+						
+						$sql = "SELECT commentId, commentAuthor, commentDatetime, commentContent, commentReply FROM postcomment WHERE postId = :postId ORDER BY commentDatetime DESC;";
 						$stmt = $handler->prepare($sql);
 						
 						$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
 						$stmt->execute();
-						?>
-						<?php
+						
 						$counter = 0;
-						while($r = $stmt->fetch(PDO::FETCH_OBJ)) : 
-							echo $counter > 0 ? '<hr>' : '';
-							?>
-							<div class="comment">
-								<div class="comment-meta">
-									<span class="comment-author">
-										<i class="fa fa-user"></i> <?php echo $r->commentAuthor; ?>
-									</span>
-									<span class="comment-date">&bull; <?php echo formatDate($r->commentDatetime); ?></span>
-								</div>
-								<div class="comment-content"><?php echo $r->commentContent; ?></div>
-								<a class="reply-btn" data-reply-id="<?php echo $r->commentId; ?>">Vastaa</a>
-							</div>
-						<?php $counter++;
+						while($r = $stmt->fetch(PDO::FETCH_OBJ)) :
+							// Käydään läpi vain kommentit, joilla ei ole vanhempia
+							if($r->commentReply == null) {
+								getComments($r);
+								$commentLevel = 0;
+							}
+							$counter++;
 						endwhile;
 						echo $counter < 1 ? 'Be first to comment this post!' : ''; ?>
 					</div>
