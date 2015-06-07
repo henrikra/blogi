@@ -51,6 +51,14 @@ hr {
   -o-transition: none !important;
 }
 
+a {
+	color: #666;
+}
+
+a:hover {
+	color: #999;
+}
+
 /*--- Buttons ---*/
 
 .button {
@@ -315,13 +323,13 @@ textarea {
 	min-height: 31px;
 	display: block;
 	text-decoration: none;
-	color: #666;
 }
 
 .tag:hover {
 	border-left: 2px solid #ff7f7f;
 	padding: 10px 18px;
 	background: #fbfbfb;
+	color: #666;
 }
 
 .tag + .tag {
@@ -387,6 +395,23 @@ footer {
 
 footer .footer-content {
 	padding: 10px 0;
+}
+
+/*--- Search results ---*/
+
+.search-result-container {
+	padding: 20px;
+	font-size: 17px;
+	text-align: center;
+}
+
+.search-result-container .search-item {
+		font-weight: bold;
+}
+
+.search-result-container a {
+	margin-top: 5px;
+	display: block;
 }
 
 @media (max-width: 767px) {
