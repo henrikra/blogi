@@ -86,7 +86,7 @@ if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['conten
 	
 	$_SESSION['fields'] = $fields;
 	
-	$errors[] = 'Kaikki kentät kuvaa ja tageja lukuunottamatta ovat pakollisia';
+	$errors[] = 'Lukuunottamatta kuvatiedostoa, kaikki kentät ovat pakollisia';
 	$_SESSION['errors'] = $errors;
 	header('Location: add_post.php');
 }
