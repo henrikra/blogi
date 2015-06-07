@@ -5,6 +5,7 @@ include_once('database.php');
 include_once('helpers.php');
 
 $errors = [];
+$tags = [];
 
 /* testaan, tuleeko pyyntö formilta */
 if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content'])) {
@@ -12,11 +13,17 @@ if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content']
 	$title = e($_POST['title']);
 	$content = e($_POST['content']);
 	
+	foreach($_POST['tags'] as $tag => $value) {
+			/* Lisätään $tags-taulukkoon kaikki alkiot, jota POST taulussa on */
+			$tags[] = e($value);
+	}
+	
 	/* laitetaan fields taulukkoon add_postista sisältö */
 	$fields = [
 		'author' => $author,
 		'title' => $title,
-		'content' => $content
+		'content' => $content,
+		'tags' => $tags
 	];
 	
 }
@@ -24,7 +31,7 @@ if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content']
 
 
 
-if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tags'])) {
 	$sql = 'INSERT INTO post(author, title, content, imageLocation) VALUES (:author, :title, :content, :imageLocation)';
 
 	$stmt = $handler->prepare($sql);
