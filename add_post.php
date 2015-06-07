@@ -65,8 +65,19 @@
 									$query = $handler->query('SELECT * FROM tag');
 									while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 									<label>
-										<input class="cb" type="checkbox" name="tags[]" value="<?php echo $r->tagId; ?>"> <?php echo $r->tagName;?>
-									</label>
+										<input class="cb" type="checkbox" name="tags[]" value="<?php echo $r->tagId; ?>"
+										<?php
+										if (!empty($fields['tags'])) {
+											foreach($fields['tags'] as $value){
+												if($r->tagId == $value){
+													echo 'checked';
+													break;
+												}
+											}
+										}
+										?>> <?php echo $r->tagName;?>
+										
+									</label> 
 									<?php endwhile; ?>
 							</div>
 						</div>
