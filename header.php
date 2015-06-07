@@ -1,4 +1,7 @@
 <header>
+	<div class="header-background">
+		<h1 class="vertical-center">Korea Blog</h1>
+	</div>
 	<nav>
 		<div class="wrapper">
 			<ul class="nav-content clearfix">
@@ -17,7 +20,4 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="header-background">
-		<h1 class="vertical-center">Korea Blog</h1>
-	</div>
 </header>
