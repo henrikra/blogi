@@ -23,7 +23,7 @@ $query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 					<?php if(!empty($r->imageLocation)) :?><!-- If-lauseen short hand syntax -->
 					<a href="post.php?postId=<?php echo $r->postId;?>"> 
 						<div class="post-image">
-							<img class="vertical-center" src="<?php echo $r->imageLocation;?>"> 
+							<img class="vertical-center" src="<?php echo $r->imageLocation;?>" alt="Post picture"> 
 						</div>
 					</a>
 					<?php endif; ?>
