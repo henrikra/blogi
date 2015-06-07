@@ -65,24 +65,7 @@ include_once('helpers.php');
 							<i class="fa fa-calendar"></i>
 								<?php echo formatDate($r->postDatetime) . ' / ';?>
 								<i class="fa fa-user"></i> <?php echo $r->author; ?>
-								<?php
-								$sql = "SELECT tag.tagName FROM tag INNER JOIN posttag ON tag.tagId = posttag.tagId WHERE posttag.postID = :postId;";
-								$stmt = $handler->prepare($sql);
-								
-								$postId = $r->postId;
-								$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
-								$stmt->execute();
-								
-								$tags = ' / <i class="fa fa-tags"></i> ';
-								$counter = 0;
-								while($r2 = $stmt->fetch(PDO::FETCH_OBJ)) :
-									$tags .= $r2->tagName . ', ';
-									$counter++;
-								endwhile;
-								if ($counter > 0) {
-									echo substr($tags, 0, -2);
-								}
-								?>
+								<?php	getTags($r->postId); ?>
 						</div>
 						<hr>
 						<p><?php echo getExcerpt(nl2br($r->content), 0, 400); ?></p>

@@ -81,5 +81,25 @@ function getComments($row) {
 	echo '</div>';
 }
 
+function getTags($postId) {
+	global $handler;
+	$sql = "SELECT * FROM tag INNER JOIN posttag ON tag.tagId = posttag.tagId WHERE posttag.postID = :postId;";
+	$stmt = $handler->prepare($sql);
+	
+	
+	$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
+	$stmt->execute();
+	
+	$tags = ' / <i class="fa fa-tags"></i> ';
+	$counter = 0;
+	while($r2 = $stmt->fetch(PDO::FETCH_OBJ)) :
+		$tags .= '<a href="index.php?tagId=' . $r2->tagId . '">' . $r2->tagName . '</a>, ';
+		$counter++;
+	endwhile;
+	if ($counter > 0) {
+		echo substr($tags, 0, -2);
+	}
+}
+
 
 ?>
