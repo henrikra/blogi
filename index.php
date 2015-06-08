@@ -20,27 +20,20 @@ include_once('helpers.php');
 				<?php
 				if(isset($_GET['tagId'])) {
 					$query = $handler->prepare('SELECT * FROM tag WHERE tagId = :tagId;');
-					$tagId = $_GET['tagId'];
+					$tagId = (int)$_GET['tagId'];
 					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
 					$query->execute();
 					$r = $query->fetch(PDO::FETCH_OBJ);
 				} else if (isset($_GET['search'])){
-					$search = $_GET['search'];
+					$search = e($_GET['search']);
 				}
 				?>
 				
-				<?php if (isset($_GET['tagId'])) : ?>
+				<?php if (isset($_GET['tagId']) || isset($_GET['search'])) : ?>
 				<div class="panel">
 					<div class="panel-container search-result-container">
-						Näytetään postaukset, joissa on tagi <span class="search-item"><?php echo $r->tagName; ?></span>
-						<a href="index.php">Näytä kaikki</a>
-					</div>
-				</div>
-				<?php endif; ?>
-				<?php if (isset($_GET['search'])) : ?>
-				<div class="panel">
-					<div class="search-result-container">
-						Näytetään postaukset, joissa on sana <span class="search-item"><?php echo $search; ?></span>
+						Näytetään postaukset, joissa on <?php echo isset($_GET['tagId']) ? 'tagi' : 'merkkijono';?>
+						<span class="search-item"><?php echo isset($_GET['tagId']) ? $r->tagName : $search; ?></span>
 						<a href="index.php">Näytä kaikki</a>
 					</div>
 				</div>
@@ -52,7 +45,7 @@ include_once('helpers.php');
 					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
 					$query->execute();
 				} else if(isset($_GET['search'])) {
-					$query = $handler->prepare('SELECT * FROM post WHERE content LIKE :search'); // järjestystä ei määritetty vielä
+					$query = $handler->prepare('SELECT * FROM post WHERE content LIKE :search'); // järjestystä ei määritetty vielä = järjestys vanhimmasta uusimpaan
 					$search = '%' . $search . '%';
 					$query->bindParam(':search', $search, PDO::PARAM_STR);
 					$query->execute();
@@ -84,7 +77,7 @@ include_once('helpers.php');
 						</div>
 						<hr>
 						<!-- Printing post content (exerpt version) -->
-						<?php echo getExcerpt($r->content, 0, 400) . '</p>'; ?>
+						<?php echo getExcerpt($r->content, 0, 400); ?>
 						<a class="post-more" href="post.php?postId=<?php echo $r->postId;?>">
 							Read more
 						</a>
