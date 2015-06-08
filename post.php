@@ -44,7 +44,8 @@
 						<?php else : ?>
 							<hr>
 						<?php endif; ?>
-						<p><?php echo nl2br($post->content); ?></p>
+						<!-- print post content -->
+						<?php echo $post->content; ?>
 					</div><!-- panel container -->
 				</div><!-- post -->
 				
