@@ -9,7 +9,7 @@ function getExcerpt($str, $startPos=0, $maxLength=100) {
 		$excerpt = substr($str, $startPos, $maxLength-3);
 		$lastSpace = strrpos($excerpt, ' ');
 		$excerpt = substr($excerpt, 0, $lastSpace);
-		$excerpt .= '...';
+		$excerpt .= '...</p>'; // Lisätty lopetusmerkki, koska exerpt katkaisee paragraafin kesken.
 	} else {
 		$excerpt = $str;
 	}
