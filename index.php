@@ -45,7 +45,7 @@ include_once('helpers.php');
 					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
 					$query->execute();
 				} else if(isset($_GET['search'])) {
-					$query = $handler->prepare('SELECT * FROM post WHERE content LIKE :search'); // järjestystä ei määritetty vielä = järjestys vanhimmasta uusimpaan
+					$query = $handler->prepare('SELECT * FROM post WHERE content LIKE :search ORDER BY postDatetime DESC;');
 					$search = '%' . $search . '%';
 					$query->bindParam(':search', $search, PDO::PARAM_STR);
 					$query->execute();
