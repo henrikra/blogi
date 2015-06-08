@@ -68,7 +68,8 @@ include_once('helpers.php');
 								<?php	getTags($r->postId); ?>
 						</div>
 						<hr>
-						<p><?php echo getExcerpt(nl2br($r->content), 0, 400); ?></p>
+						<!-- Printing post content (exerpt version) -->
+						<?php echo getExcerpt($r->content, 0, 400) . '</p>'; ?>
 						<a class="post-more" href="post.php?postId=<?php echo $r->postId;?>">
 							Read more
 						</a>
