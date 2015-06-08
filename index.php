@@ -31,7 +31,7 @@ include_once('helpers.php');
 				
 				<?php if (isset($_GET['tagId']) || isset($_GET['search'])) : ?>
 				<div class="panel">
-					<div class="panel-container search-result-container">
+					<div class="search-result-container">
 						Näytetään postaukset, joissa on <?php echo isset($_GET['tagId']) ? 'tagi' : 'merkkijono';?>
 						<span class="search-item"><?php echo isset($_GET['tagId']) ? $r->tagName : $search; ?></span>
 						<a href="index.php">Näytä kaikki</a>
@@ -74,6 +74,11 @@ include_once('helpers.php');
 								<?php echo formatDate($r->postDatetime) . ' / ';?>
 								<i class="fa fa-user"></i> <?php echo $r->author; ?>
 								<?php	getTags($r->postId); ?>
+								<!-- Print info about post's comments -->
+								<?php echo ' /' ?> <i class="fa fa-comments"></i>
+								<a href="post.php?postId=<?php echo $r->postId; ?>#comments">
+									<?php echo commentCount($r->postId) . ' Comments';?>
+								</a>
 						</div>
 						<hr>
 						<!-- Printing post content (exerpt version) -->
