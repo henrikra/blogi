@@ -15,13 +15,13 @@
 	</div>
 	
 	<div class="panel">
-		<div class="panel-header">
-			Search
+		<div class="search-container">
+			<form class="clearfix" action="index.php" method="get">
+				<input class="search-input" type="text" name="search" placeholder="Search">
+				<button class="button search-button" type="submit"><i class="fa fa-search"></i></button>
+			</form>
 		</div>
-		<form action="index.php" method="get">
-			<input type="text" name="search">
-			<input type="submit" value="search">
-		</form>
+		
 	</div>
 	
 	<?php	$query = $handler->query('SELECT * FROM tag;'); ?>

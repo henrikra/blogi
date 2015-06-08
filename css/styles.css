@@ -64,7 +64,7 @@ a:hover {
 .button {
 	border: 1px solid #ccc;
 	background: #fff;
-	padding: 6px 15px;
+	padding: 6px 12px;
 }
 
 .button:hover {
@@ -413,6 +413,27 @@ footer .footer-content {
 	margin-top: 5px;
 	display: block;
 }
+
+/*--- Search form---*/
+
+.search-container {
+	padding: 20px;
+}
+
+.search-container .search-input {
+	float: left;
+	border-right: 0;
+	height: 32px;
+	width: 77%;
+}
+
+.search-container .search-button {
+	float: left;
+	width: 23%;
+}
+
+
+/*--- Error messages ---*/
 
 .error {
 	border: 1px solid red;
