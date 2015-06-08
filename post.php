@@ -45,7 +45,7 @@
 							<hr>
 						<?php endif; ?>
 						<!-- print post content -->
-						<?php echo $post->content; ?>
+						<?php echo createParagraphs($post->content); ?>
 					</div><!-- panel container -->
 				</div><!-- post -->
 				

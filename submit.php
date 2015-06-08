@@ -52,9 +52,6 @@ if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content']
 }
 
 if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tags'])) {
-	/* Lisätään contentiin <p> ja </p> tagit kappaleisiin */
-	$content = createParagraphs($content);
-	
 	$sql = 'INSERT INTO post(author, title, content, imageLocation) VALUES (:author, :title, :content, :imageLocation)';
 
 	$stmt = $handler->prepare($sql);

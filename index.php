@@ -82,7 +82,7 @@ include_once('helpers.php');
 						</div>
 						<hr>
 						<!-- Printing post content (exerpt version) -->
-						<?php echo getExcerpt($r->content, 0, 400); ?>
+						<?php echo getExcerpt(createParagraphs($r->content), 0, 400); ?>
 						<a class="post-more" href="post.php?postId=<?php echo $r->postId;?>">
 							Read more
 						</a>
