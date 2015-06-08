@@ -17,7 +17,7 @@
 	<div class="panel">
 		<div class="search-container">
 			<form class="clearfix" action="index.php" method="get">
-				<input class="search-input" type="text" name="search">
+				<input class="search-input" type="text" name="search" placeholder="Search">
 				<button class="button search-button" type="submit"><i class="fa fa-search"></i></button>
 			</form>
 		</div>
