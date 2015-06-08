@@ -14,6 +14,16 @@
 		</div><!-- panel-container -->
 	</div>
 	
+	<div class="panel">
+		<div class="panel-header">
+			Search
+		</div>
+		<form action="index.php" method="get">
+			<input type="text" name="search">
+			<input type="submit" value="search">
+		</form>
+	</div>
+	
 	<?php	$query = $handler->query('SELECT * FROM tag;'); ?>
 	<div class="panel">
 		<div class="panel-header">
