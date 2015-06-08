@@ -49,6 +49,10 @@ if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content']
 		'imageName' => $imageName
 	];
 	
+	/* Lisätään contentiin <p> ja </p> tagit kappaleisiin */
+	$content = createParagraphs($content);
+	echo $content;
+	
 }
 
 if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tags'])) {

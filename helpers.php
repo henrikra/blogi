@@ -100,5 +100,16 @@ function getTags($postId) {
 	}
 }
 
+function createParagraphs($text) {
+	/* Change Windows newline-marks to Unix-format*/
+	$text = preg_replace('~\r\n?~', "\n", $text);
+	
+	/*** make paragraphs ***/	
+	/* Replace Unix-style newline marks with <p></p> */
+	/* And add <p> to beginning and </p> to end of the text */
+	$text = '<p>' . str_replace( chr(10) . chr(10), '</p><p>', $text) . '</p>';
+	return $text;
+}
+
 
 ?>
