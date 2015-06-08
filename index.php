@@ -24,6 +24,8 @@ include_once('helpers.php');
 					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
 					$query->execute();
 					$r = $query->fetch(PDO::FETCH_OBJ);
+				} else if (isset($_GET['search'])){
+					$search = $_GET['search'];
 				}
 				?>
 				
@@ -35,11 +37,24 @@ include_once('helpers.php');
 					</div>
 				</div>
 				<?php endif; ?>
+				<?php if (isset($_GET['search'])) : ?>
+				<div class="panel">
+					<div class="search-result-container">
+						Näytetään postaukset, joissa on sana <span class="search-item"><?php echo $search; ?></span>
+						<a href="index.php">Näytä kaikki</a>
+					</div>
+				</div>
+				<?php endif; ?>
 				
 				<?php
 				if(isset($_GET['tagId'])) {
 					$query = $handler->prepare('SELECT * FROM post INNER JOIN posttag ON post.postId = posttag.postId WHERE posttag.tagId = :tagId ORDER BY postDatetime DESC;');
 					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
+					$query->execute();
+				} else if(isset($_GET['search'])) {
+					$query = $handler->prepare('SELECT * FROM post WHERE content LIKE :search'); // järjestystä ei määritetty vielä
+					$search = '%' . $search . '%';
+					$query->bindParam(':search', $search, PDO::PARAM_STR);
 					$query->execute();
 				} else {
 					$query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
