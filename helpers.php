@@ -111,5 +111,16 @@ function createParagraphs($text) {
 	return $text;
 }
 
+function commentCount($postId) {
+	global $handler;
+	$sql = "SELECT COUNT(*) AS commentCount FROM postcomment WHERE postId = :postId";
+	$stmt = $handler->prepare($sql);
+	
+	$stmt->bindParam('postId', $postId, PDO::PARAM_INT);
+	$stmt->execute();
+	
+	$count = $stmt->fetch(PDO::FETCH_OBJ)->commentCount;
+	return $count;
+}
 
 ?>
