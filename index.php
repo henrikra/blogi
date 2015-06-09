@@ -69,18 +69,13 @@ include_once('helpers.php');
 								<h2><?php echo $r->title; ?></h2>
 							</a>
 						</div>
+						
+						<!-- Print post's metainfo -->
 						<div class="post-meta">
-							<i class="fa fa-calendar"></i>
-								<?php echo formatDate($r->postDatetime) . ' / ';?>
-								<i class="fa fa-user"></i> <?php echo $r->author; ?>
-								<?php	getTags($r->postId); ?>
-								<!-- Print info about post's comments -->
-								<?php echo ' /' ?> <i class="fa fa-comments"></i>
-								<a href="post.php?postId=<?php echo $r->postId; ?>#comments">
-									<?php echo commentCount($r->postId) . ' Comments';?>
-								</a>
+							<?php printMetaInfo($r); ?>
 						</div>
 						<hr>
+						
 						<!-- Printing post content (exerpt version) -->
 						<?php echo getExcerpt(createParagraphs($r->content), 0, 400); ?>
 						<a class="post-more" href="post.php?postId=<?php echo $r->postId;?>">

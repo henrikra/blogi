@@ -30,12 +30,12 @@
 				<div class="single-post panel">
 					<div class="panel-container">
 						<h2><?php echo $post->title; ?></h2>
+						
+						<!-- Print post's metainfo -->
 						<div class="post-meta">
-							<i class="fa fa-calendar"></i>
-								<?php echo date('D j.n.Y \- H:i', strtotime($post->postDatetime)) . ' / ';?>
-								<i class="fa fa-user"></i> <?php echo $post->author; ?>
-								<?php getTags($postId);	?>
+							<?php printMetaInfo($post); ?>
 						</div>
+						
 						<?php if(!empty($post->imageLocation)) : ?>
 							<?php $picture = $post->imageLocation;?>
 							<a href="<?php echo $picture; ?>">
