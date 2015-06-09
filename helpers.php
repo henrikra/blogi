@@ -123,4 +123,24 @@ function commentCount($postId) {
 	return $count;
 }
 
+function printMetaInfo($r) {
+	
+	/* Print calendar icon and formatted dateTime */
+	echo '<i class="fa fa-calendar"></i>' . ' ';
+	echo formatDate($r->postDatetime);
+	
+	/* Print author icon and authorname */
+	echo ' / ' . '<i class="fa fa-user"></i>' . ' ';
+	echo $r->author;
+	
+	/* Print tags icon and tags */
+	getTags($r->postId);
+	
+	/* Print comments icon and comments-info */
+	echo ' / <i class="fa fa-comments"></i> ';
+	echo '<a href="post.php?postId="' . $r->postId . '#comments">';
+	echo commentCount($r->postId) . ' Comments';
+	echo '</a>';
+}
+
 ?>
