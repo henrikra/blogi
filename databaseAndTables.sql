@@ -19,7 +19,7 @@ CREATE TABLE tag(
 	PRIMARY KEY (tagId)
 );
 
-CREATE TABLE postTag(
+CREATE TABLE posttag(
 	postId int,
 	tagId int,
 	PRIMARY KEY(postId, tagId),
@@ -27,7 +27,7 @@ CREATE TABLE postTag(
 	FOREIGN KEY (tagId) REFERENCES tag(tagId)
 );
 
-CREATE TABLE postComment(
+CREATE TABLE postcomment(
 	commentId int AUTO_INCREMENT NOT NULL,
 	postId int NOT NULL,
 	commentAuthor varchar(100) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE postComment(
 	commentContent text NOT NULL,
 	commentReply int NULL,
 	PRIMARY KEY (commentId),
-	FOREIGN KEY (commentReply) REFERENCES postComment(commentId)
+	FOREIGN KEY (commentReply) REFERENCES postcomment(commentId)
 );
 
 INSERT INTO post
