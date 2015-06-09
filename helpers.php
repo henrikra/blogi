@@ -138,7 +138,7 @@ function printMetaInfo($r) {
 	
 	/* Print comments icon and comments-info */
 	echo ' / <i class="fa fa-comments"></i> ';
-	echo '<a href="post.php?postId="' . $r->postId . '#comments">';
+	echo '<a href="post.php?postId=' . $r->postId . '#comments">';
 	echo commentCount($r->postId) . ' Comments';
 	echo '</a>';
 }
