@@ -12,6 +12,7 @@
 		
 		include_once('database.php');
 		include_once('authentication.php');
+		include_once('helpers.php');
 		
 		if ($isAuthenticated != 1)
 			die('You must be Erik Rantanen to do that!');
