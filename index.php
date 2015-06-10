@@ -8,9 +8,9 @@
 		<link rel="stylesheet" href="css/styles.css"/>
 	</head>
 <?php 
+session_start();
 include_once('database.php');
 include_once('helpers.php');
-
 ?>
 	<body class="preload">
 		<?php include_once('header.php'); ?>

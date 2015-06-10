@@ -147,4 +147,11 @@ function printMetaInfo($r) {
 	echo '</a>';
 }
 
+function isAuthenticated() {
+	if (isset($_SESSION['login']) && $_SESSION['login'] == true)
+		return true;
+	else
+		return false;
+}
+
 ?>

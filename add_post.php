@@ -9,12 +9,11 @@
 	
 	<?php
 		session_start();
-		
+		include_once('helpers.php');
 		include_once('database.php');
-		include_once('authentication.php');
 		
-		if ($isAuthenticated != 1)
-			die('You must be Erik Rantanen to do that!');
+		if (!isAuthenticated())
+			header('Location: login.php');
 				
 		$errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
 		$fields = isset($_SESSION['fields']) ? $_SESSION['fields'] : [];

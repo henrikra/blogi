@@ -9,13 +9,13 @@
 	</head>
 	
 	<?php
-	
+		session_start();
+		include_once('helpers.php');
 		include_once('database.php');
-		include_once('authentication.php');
 		
 		/* Authentication */
-		if($isAuthenticated != 1)
-			die('You must be Erik Rantanen to do that!');	
+		if (!isAuthenticated())
+			header('Location: login.php');
 	?>
 	
 	<body class="preload">

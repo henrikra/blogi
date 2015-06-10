@@ -1,5 +1,3 @@
-<?php include_once('authentication.php'); ?>
-
 <header>
 	<div class="header-background">
 		<h1 class="vertical-center">Korea Blog</h1>
@@ -12,8 +10,13 @@
 						Korea Blog
 					</a>
 				</li>
+				<?php if (!isAuthenticated()) : ?>
+				<li class="menu-item">
+					<a class="vertical-center" href="login.php">Login</a>
+				</li>
+				<?php endif; ?>
 				<li class="menu-item"><a class="vertical-center" href="">About me</a></li>
-				<?php if ($isAuthenticated == 1) : ?>
+				<?php if (isAuthenticated()) : ?>
 				<li class="menu-item <?php echo basename($_SERVER['SCRIPT_NAME']) == 'add_tag.php' ? 'active' : ''; ?>">
 					<a class="vertical-center" href="add_tag.php">Add tag</a>
 				</li>
