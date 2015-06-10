@@ -21,6 +21,10 @@ function formatDate($date) {
 	return date('D j.n.Y \- H:i', strtotime($date));
 }
 
+function formatDateShort($date) {
+	return date('j.n.', strtotime($date));
+}
+
 function getComments($row) {
 	global $commentLevel, $handler;
 	$commentLevel++;
