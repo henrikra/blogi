@@ -30,7 +30,7 @@
 		</div>
 		<?php while($r = $query->fetch(PDO::FETCH_OBJ)) :?>
 			<?php echo $r->title; ?>
-			<div class="comments-info">
+			<div class="post-meta">
 				<i class="fa fa-calendar"></i>
 				<?php echo formatDateShort($r->postDatetime) . ' / ';?>
 				<i class="fa fa-comments"></i>
