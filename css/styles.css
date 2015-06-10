@@ -451,6 +451,15 @@ footer .footer-content {
 	max-width: 150px;
 }
 
+/*-- Unordered --*/
+
+.comments-info {
+	color: #666;
+	font-size: 15px;
+}
+
+/*--- Media queries ---*/
+
 @media (max-width: 767px) {
 	.wrapper {
 		padding: 0 5px 10px;
