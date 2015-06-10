@@ -451,6 +451,40 @@ footer .footer-content {
 	max-width: 150px;
 }
 
+.post-top {
+	margin: 0 18px;
+	padding: 10px 0;
+}
+
+.post-top + .post-top {
+	border-top: 1px solid #ccc;
+}
+
+.post-top img {
+	width: 30%;
+	float: left;
+}
+
+.post-top .post-top-info {
+	float: left;
+	width: 70%;
+	padding-left: 13px;
+}
+
+.post-top a {
+	color: #000;
+	text-decoration: none;
+}
+
+.post-top a:hover {
+	color: #ff7f7f;
+}
+
+.post-top .post-title {
+	margin-bottom: 5px;
+	display: block;
+}
+
 /*--- Media queries ---*/
 
 @media (max-width: 767px) {

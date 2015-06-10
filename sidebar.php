@@ -24,18 +24,25 @@
 	</div>
 	
 	<!-- Most commented -->
-	<?php $query = $handler->query("SELECT post.postId, title, postDatetime, COUNT(*) AS postCommentCount FROM postcomment INNER JOIN post ON post.postId = postcomment.postid GROUP BY postId ORDER BY postCommentCount DESC, postDatetime DESC LIMIT 5;") ?>
+	<?php $query = $handler->query("SELECT post.postId, title, postDatetime, imageLocation, COUNT(*) AS postCommentCount FROM postcomment INNER JOIN post ON post.postId = postcomment.postid GROUP BY postId ORDER BY postCommentCount DESC, postDatetime DESC LIMIT 5;") ?>
 	<div class="panel">
 		<div class="panel-header">
 			<h2>Most commented</h2>
 		</div>
 		<?php while($r = $query->fetch(PDO::FETCH_OBJ)) :?>
-			<?php echo $r->title; ?>
-			<div class="post-meta">
-				<i class="fa fa-calendar"></i>
-				<?php echo formatDateShort($r->postDatetime) . ' / ';?>
-				<i class="fa fa-comments"></i>
-				<?php echo $r->postCommentCount; ?>
+			<div class="post-top clearfix">
+				<a href="post.php?postId=<?php echo $r->postId; ?>">
+					<img src="<?php echo $r->imageLocation; ?>" alt="top-post">
+				</a>
+				<div class="post-top-info">
+				<a class="post-title" href="post.php?postId=<?php echo $r->postId; ?>"><?php echo $r->title; ?></a>
+					<div class="post-meta">
+						<i class="fa fa-calendar"></i>
+						<?php echo formatDateShort($r->postDatetime) . ' / ';?>
+						<i class="fa fa-comments"></i>
+						<?php echo $r->postCommentCount; ?>
+					</div>
+				</div>
 			</div>
 		<?php endwhile; ?>
 	</div>
