@@ -22,7 +22,7 @@ function formatDate($date) {
 }
 
 function formatDateShort($date) {
-	return date('j.n.', strtotime($date));
+	return date('j.n.Y', strtotime($date));
 }
 
 function getComments($row) {
