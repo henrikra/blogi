@@ -14,6 +14,9 @@
 				</li>
 				<li class="menu-item"><a class="vertical-center" href="">About me</a></li>
 				<?php if ($isAuthenticated == 1) : ?>
+				<li class="menu-item <?php echo basename($_SERVER['SCRIPT_NAME']) == 'add_tag.php' ? 'active' : ''; ?>">
+					<a class="vertical-center" href="add_tag.php">Add tag</a>
+				</li>
 				<li class="menu-item <?php echo basename($_SERVER['SCRIPT_NAME']) == 'add_post.php' ? 'active' : ''; ?>">
 					<a class="vertical-center" href="add_post.php">Add post</a>
 				</li>
