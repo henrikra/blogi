@@ -23,6 +23,7 @@
 		</div>
 	</div>
 	
+	<!-- Most commented -->
 	<?php $query = $handler->query("SELECT post.postId, title, postDatetime, COUNT(*) AS postCommentCount FROM postcomment INNER JOIN post ON post.postId = postcomment.postid GROUP BY postId ORDER BY postCommentCount DESC, postDatetime DESC LIMIT 5;") ?>
 	<div class="panel">
 		<div class="panel-header">
