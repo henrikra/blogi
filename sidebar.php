@@ -21,7 +21,22 @@
 				<button class="button search-button" type="submit"><i class="fa fa-search"></i></button>
 			</form>
 		</div>
-		
+	</div>
+	
+	<?php $query = $handler->query("SELECT post.postId, title, postDatetime, COUNT(*) AS postCommentCount FROM postcomment INNER JOIN post ON post.postId = postcomment.postid GROUP BY postId ORDER BY postCommentCount DESC, postDatetime DESC LIMIT 5;") ?>
+	<div class="panel">
+		<div class="panel-header">
+			<h2>Most commented</h2>
+		</div>
+		<?php while($r = $query->fetch(PDO::FETCH_OBJ)) :?>
+			<?php echo $r->title; ?>
+			<div class="comments-info">
+				<i class="fa fa-calendar"></i>
+				<?php echo formatDateShort($r->postDatetime) . ' / ';?>
+				<i class="fa fa-comments"></i>
+				<?php echo $r->postCommentCount; ?>
+			</div>
+		<?php endwhile; ?>
 	</div>
 	
 	<?php	$query = $handler->query('SELECT * FROM tag;'); ?>
