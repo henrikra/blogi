@@ -1,4 +1,7 @@
+<?php include_once('helpers.php'); ?>
+
 <aside>
+	
 	<div class="bio panel">
 		<div class="bio-background">
 			<img class="vertical-center" src="img/bio-background.jpg" alt="Bio background">

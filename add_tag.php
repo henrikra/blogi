@@ -12,7 +12,6 @@
 	
 		include_once('database.php');
 		include_once('authentication.php');
-		include_once('helpers.php');
 		
 		/* Authentication */
 		if($isAuthenticated != 1)
