@@ -22,7 +22,7 @@ body {
 	transform: translateY(-50%);
 }
 
-input[type="text"], textarea, select {
+input[type="text"], input[type="password"], textarea, select {
 	width: 100%;
 	border: 1px solid #ccc;
 	padding: 5px 7px;
@@ -181,11 +181,11 @@ aside {
 /*--- Form ---*/
 
 .form-row {
-	margin-bottom: 9px;
+	margin-bottom: 15px;
 }
 
-.form-row input, textarea {
-	margin-top: 4px;
+.form-row input:nth-child(2), .form-row textarea:nth-child(2) {
+    margin-top: 4px;
 }
 
 .form-row > label {
@@ -220,6 +220,10 @@ textarea {
 
 .panel + .panel {
 	margin-top: 20px;
+}
+
+.panel-equal-container {
+	padding: 20px;
 }
 
 /*--- Post ---*/
@@ -416,18 +420,14 @@ footer .footer-content {
 
 /*--- Search form---*/
 
-.search-container {
-	padding: 20px;
-}
-
-.search-container .search-input {
+.panel-equal-container .search-input {
 	float: left;
 	border-right: 0;
 	height: 32px;
 	width: 77%;
 }
 
-.search-container .search-button {
+.panel-equal-container .search-button {
 	float: left;
 	width: 23%;
 	height: 32px;
@@ -441,6 +441,7 @@ footer .footer-content {
 	background: #e50000;
 	padding: 15px;
 	color: #fff;
+	margin-bottom: 15px;
 }
 
 .error .error-title {

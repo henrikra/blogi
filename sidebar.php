@@ -1,4 +1,7 @@
-<?php include_once('helpers.php'); ?>
+<?php 
+include_once('helpers.php');
+include_once('database.php');
+?>
 
 <aside>
 	
@@ -18,7 +21,7 @@
 	</div>
 	
 	<div class="panel">
-		<div class="search-container">
+		<div class="panel-equal-container">
 			<form class="clearfix" action="index.php" method="get">
 				<input class="search-input" type="text" name="search" placeholder="Search">
 				<button class="button search-button" type="submit"><i class="fa fa-search"></i></button>

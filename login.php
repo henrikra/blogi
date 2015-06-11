@@ -1,5 +1,6 @@
 <?php
 session_start();
+$errors = [];
 $username = $password = $userError = $passError = '';
 
 if(isset($_POST['sub'])){
@@ -10,8 +11,7 @@ if(isset($_POST['sub'])){
 		header('Location: index.php');
 		die();
   }
-  if($username !== 'admin') $userError = 'Invalid Username';
-  if($password !== 'password') $passError = 'Invalid Password';
+  if($username !== 'admin' || $password !== 'password') $errors[] = 'Username and password don\'t match';
 }
 ?>
 <!DOCTYPE html>
@@ -19,21 +19,43 @@ if(isset($_POST['sub'])){
 	<head>
 		<meta charset="utf-8">
 		<title>Login</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/styles.css"/>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	</head>
-	<body>
-		<h1>Please login</h1>
-		<form name="input" action="login.php" method="post">
-			<label for="username"></label>
-			<input type="text" value="<?php echo $username; ?>" id="username" name="username">
-			<div class="error">
-				<?php echo $userError; ?>
-			</div>
-			<label for="password"></label>
-			<input type="password" value="<?php echo $password; ?>" id="password" name="password">
-			<div class="error">
-				<?php echo $passError; ?>
-			</div>
-			<input type="submit" value="Home" name="sub">
-		</form>
+	<body class="preload">
+		<?php include_once('header.php'); ?>
+		<div class="wrapper clearfix">
+			<div class="main-content">
+				<div class="panel">
+					<div class="panel-header">
+						<h2>Login</h2>
+					</div>
+					<div class="panel-equal-container">
+						<?php if(!empty($errors)) :?>
+						<div class="error">
+							<div class="error-title">
+								<i class="fa fa-exclamation-triangle"></i> Huomioi nämä
+							</div>
+							<ul><li> <?php echo implode('</li><li>', $errors);?> </li></ul>
+						</div>
+						<?php endif; ?>
+						<form name="input" action="login.php" method="post">
+							<div class="form-row">
+								<label for="username">Username</label>
+								<input type="text" value="<?php echo $username; ?>" id="username" name="username">
+							</div>
+							<div class="form-row">
+								<label for="password">Password</label>
+								<input type="password" value="<?php echo $password; ?>" id="password" name="password">
+							</div>
+							<input class="button" type="submit" value="Login" name="sub">
+						</form>
+					</div>
+				</div>
+			</div><!-- main-content -->
+			<?php include_once('sidebar.php'); ?>
+		</div><!-- wrapper -->
+		<?php include_once('footer.php'); ?>
 	</body>
 </html>
