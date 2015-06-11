@@ -77,7 +77,7 @@ if ( !empty($_SERVER['CONTENT_LENGTH']) && empty($_FILES) && empty($_POST) ) {
 }
 
 // Jos kaikki tarkistukset menivät läpi niin viedään kantaan
-if( $allTextFieldsFilled && isset($imageName)) {
+if( $allTextFieldsFilled && !$fileTooBig) {
 	$sql = 'INSERT INTO post(author, title, content, imageLocation) VALUES (:author, :title, :content, :imageLocation)';
 
 	$stmt = $handler->prepare($sql);
