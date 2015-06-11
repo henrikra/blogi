@@ -8,50 +8,76 @@ $errors = [];
 $tags = [];
 
 
-/* testaan, tuleeko pyyntö formilta */
-if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content'])) {
-	$author = e($_POST['author']);
-	$title = e($_POST['title']);
-	$content = e($_POST['content']);
-	$imageName = null;
-	
-	if (!empty($_POST['imageNameHidden'])) {
-		$imageName = $_POST['imageNameHidden'];
-		if (!empty($_FILES['image']['name'])) {
-			$imageName = null;
+$fileTooBig = false;
+if ( !empty($_SERVER['CONTENT_LENGTH']) && empty($_FILES) && empty($_POST) ) {
+	$errors[] = 'Image is too big! Max size is 0.5 MB';
+	$fileTooBig = true;
+} else {
+	/* testaan, tuleeko pyyntö formilta */
+	if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['content'])) {
+		$author = e($_POST['author']);
+		$title = e($_POST['title']);
+		$content = e($_POST['content']);
+		$imageName = null;
+		
+		if (!empty($_POST['imageNameHidden'])) {
+			$imageName = $_POST['imageNameHidden'];
+			if (!empty($_FILES['image']['name'])) {
+				$imageName = null;
+			}
 		}
-	}
-	
-	/*** Preparing picture ***/
-	
-	/* If picture exits */
-	if(!isset($imageName) && !empty($_FILES['image']['name'])) {
-		$uploadedImageName = $_FILES['image']['name'];
 		
-		$tmp_location = $_FILES['image']['tmp_name'];
-		$wanted_location = 'uploads/' . $uploadedImageName;
+		/*** Preparing picture ***/
 		
-		move_uploaded_file($tmp_location, $wanted_location);
-		$imageName = $uploadedImageName;
+		/* If picture exits */
+		
+		if(!isset($imageName) && !empty($_FILES['image']['name'])) {
+			
+			$file_name = $_FILES['image']['name'];
+			$file_size = $_FILES['image']['size'];
+			$file_error = $_FILES['image']['error'];
+			
+			$uploadedImageName = $_FILES['image']['name'];
+			
+			$tmp_location = $_FILES['image']['tmp_name'];
+			$wanted_location = 'uploads/' . $uploadedImageName;
+			$maxBytes = 500000;
+			if ($file_error !== UPLOAD_ERR_INI_SIZE && $file_size <= $maxBytes) {
+				if (move_uploaded_file($tmp_location, $wanted_location)) {
+					$imageName = $uploadedImageName;
+				} else {
+					$errors[] = 'Something went wrong';
+				}
+			} else {
+				$errors[] = 'Image is too big! Max size is 0.5 MB';
+			}
+		}
+		
+		foreach($_POST['tags'] as $tag => $value) {
+				/* Lisätään $tags-taulukkoon kaikki alkiot, jota POST taulussa on */
+				$tags[] = e($value);
+		}
+		
+		/* laitetaan fields taulukkoon add_postista sisältö */
+		$fields = [
+			'author' => $author,
+			'title' => $title,
+			'content' => $content,
+			'tags' => $tags,
+			'imageName' => $imageName
+		];
+		
 	}
-	
-	foreach($_POST['tags'] as $tag => $value) {
-			/* Lisätään $tags-taulukkoon kaikki alkiot, jota POST taulussa on */
-			$tags[] = e($value);
+
+	if(!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tags'])) {
+		$allTextFieldsFilled = true;
+	} else {
+		$errors[] = 'Lukuunottamatta kuvatiedostoa, kaikki kentät ovat pakollisia';
 	}
-	
-	/* laitetaan fields taulukkoon add_postista sisältö */
-	$fields = [
-		'author' => $author,
-		'title' => $title,
-		'content' => $content,
-		'tags' => $tags,
-		'imageName' => $imageName
-	];
-	
 }
 
-if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tags'])) {
+// Jos kaikki tarkistukset menivät läpi niin viedään kantaan
+if( $allTextFieldsFilled && isset($imageName)) {
 	$sql = 'INSERT INTO post(author, title, content, imageLocation) VALUES (:author, :title, :content, :imageLocation)';
 
 	$stmt = $handler->prepare($sql);
@@ -97,8 +123,6 @@ if( !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['conten
 	/* Currently PART OF means: author, title, content*/
 	
 	$_SESSION['fields'] = $fields;
-	
-	$errors[] = 'Lukuunottamatta kuvatiedostoa, kaikki kentät ovat pakollisia';
 	$_SESSION['errors'] = $errors;
 	header('Location: add_post.php');
 }
