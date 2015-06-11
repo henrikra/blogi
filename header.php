@@ -12,8 +12,12 @@
 					</a>
 				</li>
 				<?php if (!isAuthenticated()) : ?>
-				<li class="menu-item">
+				<li class="menu-item <?php echo basename($_SERVER['SCRIPT_NAME']) == 'login.php' ? 'active' : ''; ?>">
 					<a class="vertical-center" href="login.php">Login</a>
+				</li>
+				<?php else : ?>
+				<li class="menu-item">
+					<a class="vertical-center" href="logout.php">Logout</a>
 				</li>
 				<?php endif; ?>
 				<li class="menu-item"><a class="vertical-center" href="">About me</a></li>
