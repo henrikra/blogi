@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('helpers.php');
 include_once('database.php');
 ?>
@@ -20,7 +20,20 @@ include_once('database.php');
 		</div><!-- panel-container -->
 	</div>
 	
+	<!-- Search -->
+	<!--        -->
+	<!-- Myös: tulostaa etsimiseen liittyvät virheet -->
 	<div class="panel">
+		<!-- Tulostetaan virheet -->
+		<?php if(!empty($searchErrors)) :?>
+		<div class="error">
+			<div class="error-title">
+				<i class="fa fa-exclamation-triangle"></i>Huomioi nämä
+			</div>
+			<ul><li> <?php echo implode('</li><li>', $searchErrors); ?> </li></ul>
+		</div>
+		<?php endif; ?>
+		<!-- Etsintäkenttä -->
 		<div class="panel-equal-container">
 			<form class="clearfix" action="index.php" method="get">
 				<input class="search-input" type="text" name="search" placeholder="Search">
