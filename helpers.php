@@ -154,4 +154,8 @@ function isAuthenticated() {
 		return false;
 }
 
+function printErrorList($errors) {
+	echo '<ul><li>' . implode('</li><li>', $errors) . '</li><ul>';
+}
+
 ?>

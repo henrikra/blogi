@@ -30,7 +30,7 @@ include_once('database.php');
 			<div class="error-title">
 				<i class="fa fa-exclamation-triangle"></i>Huomioi nämä
 			</div>
-			<ul><li> <?php echo implode('</li><li>', $searchErrors); ?> </li></ul>
+			<?php printErrorList($searchErrors);?>
 		</div>
 		<?php endif; ?>
 		<!-- Etsintäkenttä -->

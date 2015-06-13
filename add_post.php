@@ -31,7 +31,7 @@
 							<div class="error-title">
 								<i class="fa fa-exclamation-triangle"></i> Huomioi nämä
 							</div>
-							<ul><li> <?php echo implode('</li><li>', $errors);?> </li></ul>
+							<?php printErrorList($errors);?>
 						</div>
 					<?php endif; ?>
 					<form action="submit.php" method="post" enctype="multipart/form-data">
