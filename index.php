@@ -69,6 +69,7 @@ include_once('helpers.php');
 				}
 				?>
 				
+				<!-- Print posts -->
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
 					<?php if(!empty($r->imageLocation)) :?><!-- If-lauseen short hand syntax -->
