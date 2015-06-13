@@ -29,7 +29,7 @@ input[type="text"], input[type="password"], textarea, select {
 	transition: all 0.2s ease-in-out;
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 	box-shadow: 0 0 2px #83C251;
 	border-color: #83C251;
 }
@@ -131,8 +131,12 @@ header nav {
 	float: left;
 }
 
-.nav-content .menu-item {
+.nav-content .menu-actions {
 	float: right;
+}
+
+.menu-actions .menu-item {
+	float: left;
 }
 
 .nav-content .menu-item.active {
@@ -141,6 +145,43 @@ header nav {
 
 .nav-content .menu-item.active a {
 	color: #fff;
+}
+
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+	color: #888;
+	height: 50px;
+	width: 100%;
+	text-decoration: none;
+	text-align: center;
+	display: none;
+	line-height: 25px;
+}
+
+.show-menu:hover {
+	color: #fff;
+	cursor: pointer;
+}
+
+.show-menu .show-menu-content {
+	text-align:center;
+	vertical-align:middle; 
+	display:table-cell;
+}
+
+/*Hide checkbox*/
+header input[type=checkbox]{
+    display: none;
+}
+
+header input[type=checkbox]:checked ~ .show-menu {
+	background: #000;
+	color: #fff;
+}
+
+/*Show menu when invisible checkbox is checked*/
+header input[type=checkbox]:checked ~ .nav-content{
+    display: block;
 }
 
 /*--- Layout ---*/
@@ -500,6 +541,35 @@ footer .footer-content {
 	aside {
 		padding-left: 0;
 		margin-top: 20px;
+	}
+	
+	ul {
+		position: static;
+		display: none;
+	}
+	
+	ul li, li a, .menu-actions {
+		width: 100%;
+	}
+	
+	.show-menu {
+		display: table;
+	}
+	
+	header nav {
+		height: auto;
+	}
+	
+	nav .wrapper {
+		padding: 0;
+	}
+	
+	.site-logo {
+		display: none;
+	}
+	
+	.nav-content .menu-item.active {
+		background: #222;
 	}
 } 
 
