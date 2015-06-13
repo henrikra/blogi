@@ -13,17 +13,17 @@
 	include_once('database.php');
 	include_once('helpers.php');
 	
-	
 	$sql = "SELECT * FROM post WHERE postId = :postId";
 	$stmt = $handler->prepare($sql);
-	
-	$postId = isset($_GET['postId']) ? (int)$_GET['postId'] : 1;
+
+	$postId = isset($_GET['postId']) && !empty($_GET['postId']) ? (int)$_GET['postId'] : 0;
 	
 	$stmt->bindParam(':postId', $postId, PDO::PARAM_INT);
 	$stmt->execute();
 	$post = $stmt->fetch(PDO::FETCH_OBJ);
 	?>
 	
+	<?php if(!empty($post)) :?>
 	<body class="preload">
 		<?php include_once('header.php'); ?>
 		<div class="wrapper clearfix">
@@ -98,6 +98,9 @@
 			<?php include_once('sidebar.php'); ?>
 		</div><!-- wrapper -->
 		<?php include_once('footer.php'); ?>
+		<?php else : ?>
+		<?php header('Location: index.php');?>
+		<?php endif; ?>
 	</body>
 
 </html>
