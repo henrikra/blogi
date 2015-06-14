@@ -159,7 +159,21 @@ function printErrorList($errors) {
 }
 
 function printTagSearchInfo($tag) {
-	echo 'Showing posts that contain tag <strong>' . $tag . '</strong>';
+	global $handler;
+	
+	/* Muodostetaan kysely */
+	$sql = "SELECT tagName FROM tag WHERE tagId = :tagId";
+	$stmt = $handler->prepare($sql);
+	$stmt->bindParam(':tagId', $tag, PDO::PARAM_INT);
+	
+	/* Ajetaan kysely*/
+	$stmt->execute();
+	
+	/* Otetaan kyselyn tulokset */
+	$r = $stmt->fetch(PDO::FETCH_OBJ);
+	$tagName = $r->tagName;
+	
+	echo 'Showing posts that contain tag <strong>' . $tagName . '</strong>';
 }
 
 function printStringSearchInfo($string, $rowCount) {
