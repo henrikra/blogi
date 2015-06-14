@@ -80,7 +80,8 @@
 							<label class="col-2">Tags</label>
 							<div class="col-8">
 								<div class="button-group">
-									<input id="tag-input" class="datalist-input" list="tags" name="tag" autocomplete="off">
+									<input id="tag-input" class="datalist-input" list="tags" name="tag" autocomplete="off"
+									placeholder="Search for tags...">
 									<input id="selected-tag-id" type="hidden">
 									<input id="selected-tag-name" type="hidden">
 									<button id="add-tag-button" class="button" type="button">Add</button>

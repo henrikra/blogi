@@ -531,11 +531,13 @@ footer .footer-content {
 
 #selected-tags .selected-tag {
 	display: inline-block;
-	border: 1px solid blue;
-	border-radius: 5px;
-	padding: 3px 8px;
+	border-radius: 15px;
+	padding: 5px 10px 5px 12px;
 	font-size: 13px;
 	margin: 0 5px 5px 0;
+	background: #666;
+	color: #fff;
+	font-weight: bold;
 }
 
 #selected-tags .selected-tag i {
