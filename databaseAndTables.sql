@@ -64,14 +64,14 @@ Ultricies risus eros maecenas. Dui pede nullam. Mollit elit vivamus sollicitudin
 
 INSERT INTO tag
 (tagName)
-VALUES ('Food');
+VALUES ('food');
 
 INSERT INTO tag
 (tagName)
-VALUES ('Culture');
+VALUES ('culture');
 
 INSERT INTO tag
 (tagName)
-VALUES ('Programming');
+VALUES ('programming');
 
 

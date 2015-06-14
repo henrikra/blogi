@@ -78,25 +78,56 @@
 						
 						<div class="form-row">
 							<label class="col-2">Tags</label>
-							<div class="col-8">						
+							<div class="col-8">
+								<div class="button-group">
+									<input id="tag-input" class="datalist-input" list="tags" name="tag" autocomplete="off">
+									<input id="selected-tag-id" type="hidden">
+									<input id="selected-tag-name" type="hidden">
+									<button id="add-tag-button" class="button" type="button">Add</button>
+								</div>
+								<datalist id="tags">
 								<?php
 									$query = $handler->query('SELECT * FROM tag');
 									while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
-									<label>
-										<input class="cb" type="checkbox" name="tags[]" value="<?php echo $r->tagId; ?>"
-										<?php
-										if (!empty($fields['tags'])) {
-											foreach($fields['tags'] as $value){
-												if($r->tagId == $value){
-													echo 'checked';
-													break;
-												}
-											}
-										}
-										?>> <?php echo $r->tagName;?>
-										
-									</label> 
+									<option id="<?php echo $r->tagId; ?>" value="<?php echo $r->tagName; ?>">
+										<?php echo $r->tagName; ?>
+									</option>
 									<?php endwhile; ?>
+								</datalist>
+							</div>
+						</div>
+						
+						<div class="form-row">
+							<label class="col-2"></label>
+							<div class="col-8">
+								<div id="selected-tags">
+								<?php
+								$query = $handler->query('SELECT * FROM tag');
+								while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
+								<?php
+								if (!empty($fields['tags'])) {
+									foreach($fields['tags'] as $value){
+										if($r->tagId == $value){
+											echo '<div class="selected-tag">' . $r->tagName . ' <i class="fa fa-times unselect-tag"></i></div>';
+											echo '<input class="selected-tag-hidden" type="hidden" name="tagIds[]" value="' . $value . '">';
+											echo '<input class="selected-tag-hidden-name" type="hidden" name="tagNames[]" value="' . $r->tagName . '">';
+											break;
+										}
+									}
+								}
+								?>
+								<?php endwhile; ?>
+								
+								<?php
+								if (!empty($fields['tagNames'])) {
+									foreach($fields['tagNames'] as $value){
+										echo '<div class="selected-tag">' . $value . ' <i class="fa fa-times unselect-tag"></i></div>';
+										echo '<input class="selected-tag-hidden" type="hidden" name="tagIds[]" value="">';
+										echo '<input class="selected-tag-hidden-name" type="hidden" name="tagNames[]" value="' . $value . '">';
+									}
+								}
+								?>
+								</div>
 							</div>
 						</div>
 						
