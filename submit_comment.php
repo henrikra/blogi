@@ -1,11 +1,13 @@
 <?php
 
+session_start();
 include_once('database.php');
 include_once('helpers.php');
 
 $postId = e($_POST['postId']);
 
 if( !empty($_POST['postId']) && !empty($_POST['commentAuthor']) && !empty($_POST['commentContent'])){
+		
 	$sql = "INSERT INTO postcomment (postId, commentAuthor, commentContent, commentReply) VALUES (:postId, :commentAuthor, :commentContent, :commentReply);";
 
 	$stmt = $handler->prepare($sql);
@@ -30,7 +32,13 @@ if( !empty($_POST['postId']) && !empty($_POST['commentAuthor']) && !empty($_POST
 	
 } else {
 	
-	echo 'You have to insert your name and comment';
+	/* Store error if name or comment is missing */
+	$_SESSION['errors'][] = 'You have to insert your name and comment';
+	/* Store possibly filled value to session */
+	$_SESSION['fields']['commentAuthor'] = e($_POST['commentAuthor']);
+	$_SESSION['fields']['commentContent'] = e($_POST['commentContent']);
+	
+	/* Redict back to add-comment section */
 	header('Location: post.php?postId=' . $postId . '#add-comment');
 	
 }

@@ -13,6 +13,13 @@
 	include_once('database.php');
 	include_once('helpers.php');
 	
+	// Check if fields are not filled
+	if (empty($_SESSION['fields']['commentAuthor']) && !isset($_SESSION['fields']['commentAuthor']))
+		$_SESSION['fields']['commentAuthor'] = '';
+	
+	if (empty($_SESSION['fields']['commentContent']) && !isset($_SESSION['fields']['commentContent']))
+		$_SESSION['fields']['commentContent'] = '';
+	
 	$sql = "SELECT * FROM post WHERE postId = :postId";
 	$stmt = $handler->prepare($sql);
 
@@ -76,18 +83,27 @@
 				</div><!-- comments -->
 				
 				<div id="add-comment" class="panel">
+				
+					<?php if(!empty($_SESSION['errors'])) : ?>
+					<div class="error">
+						<div class="error-title">
+							<i class="fa fa-exclamation-triangle"></i>Please note
+						</div>
+						<?php printErrorList($_SESSION['errors']); ?>
+					</div>
+					<?php endif; ?>
 					<div class="panel-container">
 						<h2>Add Comment</h2>
 						<form action="submit_comment.php" method="post">
-							<input type='hidden' name="commentReply" value="">
+							<input type="hidden" name="commentReply" value="">
 							<input type="hidden" value="<?php echo $postId; ?>" name="postId">
 							<div class="form-row">
 								<label for="comment-author">Name</label>
-								<input type="text" id="comment-author" name="commentAuthor">
+								<input type="text" id="comment-author" name="commentAuthor" value="<?php echo $_SESSION['fields']['commentAuthor']; ?>">
 							</div>
 							<div class="form-row">
 								<label for="comment-content">Comment</label>
-								<textarea id="comment-content" rows="5" name="commentContent"></textarea>
+								<textarea id="comment-content" rows="5" name="commentContent"><?php echo $_SESSION['fields']['commentContent']; ?></textarea>
 							</div>
 							<input type="submit" value="Post" class="button">
 						</form>
@@ -104,3 +120,8 @@
 	</body>
 
 </html>
+
+<?php
+unset($_SESSION['fields']);
+unset($_SESSION['errors']);
+?>
