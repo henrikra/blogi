@@ -58,14 +58,17 @@ include_once('database.php');
 					<div class="post-meta">
 						<i class="fa fa-calendar"></i>
 						<?php echo formatDateShort($r->postDatetime) . ' / ';?>
-						<i class="fa fa-comments"></i>
-						<?php echo $r->postCommentCount; ?>
+						<a href="post.php?postId=<?php echo $r->postId ?>#comments">
+							<i class="fa fa-comments"></i>
+							<?php echo $r->postCommentCount; ?>
+						</a>
 					</div>
 				</div>
 			</div>
 		<?php endwhile; ?>
 	</div>
 	
+	<!-- Tags -->
 	<?php	$query = $handler->query('SELECT * FROM tag;'); ?>
 	<div class="panel">
 		<div class="panel-header">
