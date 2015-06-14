@@ -77,7 +77,7 @@ if ( !empty($_SERVER['CONTENT_LENGTH']) && empty($_FILES) && empty($_POST) ) {
 	if(!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tagIds'])) {
 		$allTextFieldsFilled = true;
 	} else {
-		$errors[] = 'Lukuunottamatta kuvatiedostoa, kaikki kentät ovat pakollisia';
+		$errors[] = 'All fields are compulsory. Picture is optional.';
 	}
 }
 

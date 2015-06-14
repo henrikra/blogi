@@ -28,7 +28,7 @@ include_once('database.php');
 		<?php if(!empty($searchErrors)) :?>
 		<div class="error">
 			<div class="error-title">
-				<i class="fa fa-exclamation-triangle"></i> Huomioi nämä
+				<i class="fa fa-exclamation-triangle"></i> Please note
 			</div>
 			<?php printErrorList($searchErrors);?>
 		</div>
@@ -58,14 +58,17 @@ include_once('database.php');
 					<div class="post-meta">
 						<i class="fa fa-calendar"></i>
 						<?php echo formatDateShort($r->postDatetime) . ' / ';?>
-						<i class="fa fa-comments"></i>
-						<?php echo $r->postCommentCount; ?>
+						<a href="post.php?postId=<?php echo $r->postId ?>#comments">
+							<i class="fa fa-comments"></i>
+							<?php echo $r->postCommentCount; ?>
+						</a>
 					</div>
 				</div>
 			</div>
 		<?php endwhile; ?>
 	</div>
 	
+	<!-- Tags -->
 	<?php	$query = $handler->query('SELECT * FROM tag;'); ?>
 	<div class="panel">
 		<div class="panel-header">

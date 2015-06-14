@@ -158,4 +158,17 @@ function printErrorList($errors) {
 	echo '<ul><li>' . implode('</li><li>', $errors) . '</li><ul>';
 }
 
+function printTagSearchInfo($tag) {
+	echo 'Showing posts that contain tag <strong>' . $tag . '</strong>';
+}
+
+function printStringSearchInfo($string, $rowCount) {
+	// $rowCount is number of posts found
+	if($rowCount != 0) {
+		echo 'Showing posts that contain <strong>' . $string . '</strong>.';
+	} else {
+		echo 'No search result for <strong>' . $string . '</strong>.';
+	}
+}
+
 ?>

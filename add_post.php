@@ -29,7 +29,7 @@
 					<?php if(!empty($errors)) :?>
 						<div class="error">
 							<div class="error-title">
-								<i class="fa fa-exclamation-triangle"></i> Huomioi nämä
+								<i class="fa fa-exclamation-triangle"></i> Please note
 							</div>
 							<?php printErrorList($errors);?>
 						</div>
