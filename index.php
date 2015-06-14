@@ -35,17 +35,6 @@ include_once('helpers.php');
 				}
 				?>
 				
-				<!-- Näytetään mahdolliset hakuehdot -->
-				<?php if (isset($_GET['tagId']) || (isset($_GET['search'])) && $searchLength >= 3) : ?>
-				<div class="panel">
-					<div class="search-result-container">
-						Näytetään postaukset, joissa on <?php echo isset($_GET['tagId']) ? 'tagi' : 'merkkijono';?>
-						<span class="search-item"><?php echo isset($_GET['tagId']) ? $r->tagName : $search; ?></span>
-						<a href="index.php">Näytä kaikki</a>
-					</div>
-				</div>
-				<?php endif; ?>
-				
 				<?php
 				/*** Suoritetaan haluttu haku ***/
 				/* vaihtoehto 1: haetaan tagilla*/
@@ -56,18 +45,37 @@ include_once('helpers.php');
 				/* vaihtoehto 2: haetaan hakusanalla */
 				} else if(isset($_GET['search']) && $searchLength >= 3) {
 					$query = $handler->prepare('SELECT * FROM post WHERE content LIKE :search ORDER BY postDatetime DESC;');
-					$search = '%' . $search . '%';
-					$query->bindParam(':search', $search, PDO::PARAM_STR);
+					$searchPattern = '%' . $search . '%';
+					$query->bindParam(':search', $searchPattern, PDO::PARAM_STR);
 					$query->execute();
 				} else {
 				/* vaihtoehto 3: haetaan kaikki */
 					$query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
 					/* Tarkistetaan oliko pituuden vuoksi hylättyä hakusanaa */
 					if ($searchLength >= 0 && $searchLength <= 2) {
-						$searchErrors[] = 'Hakusanan minimipituus on 3 merkkiä';
+						$searchErrors[] = 'Minimum length for search term is 3 characters.';
 					}
 				}
 				?>
+				
+				<!-- Näytetään mahdolliset hakuehdot -->
+				<?php if (isset($_GET['tagId']) || (isset($_GET['search'])) && $searchLength >= 3) : ?>
+				<div class="panel">
+					<div class="search-result-container">
+						<?php
+						/* Calculating if there is any rows returned from DB */
+						$rowCount = $query->rowCount();
+						
+						if(isset($_GET['tagId'])) {
+							printTagSearchInfo($_GET['tagId']);
+						} else {
+							printStringSearchInfo($_GET['search'], $rowCount);
+						}
+						?>
+						<a href="index.php">Show all</a>
+					</div>
+				</div>
+				<?php endif; ?>
 				
 				<!-- Print posts -->
 				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
