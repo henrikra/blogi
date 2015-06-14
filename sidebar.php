@@ -28,7 +28,7 @@ include_once('database.php');
 		<?php if(!empty($searchErrors)) :?>
 		<div class="error">
 			<div class="error-title">
-				<i class="fa fa-exclamation-triangle"></i> Huomioi nämä
+				<i class="fa fa-exclamation-triangle"></i> Please note
 			</div>
 			<?php printErrorList($searchErrors);?>
 		</div>
