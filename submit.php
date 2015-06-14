@@ -6,6 +6,7 @@ include_once('helpers.php');
 
 $errors = [];
 $tags = [];
+$tagNames = [];
 
 
 $fileTooBig = false;
@@ -52,10 +53,13 @@ if ( !empty($_SERVER['CONTENT_LENGTH']) && empty($_FILES) && empty($_POST) ) {
 				$errors[] = 'Image is too big! Max size is 0.5 MB';
 			}
 		}
-		
-		foreach($_POST['tags'] as $tag => $value) {
+		for ($x = 0; $x < sizeof($_POST['tagIds']); $x++) {
+			if ($_POST['tagIds'][$x] === '') {
+				$tagNames[] = e($_POST['tagNames'][$x]);
+			} else {
 				/* Lisätään $tags-taulukkoon kaikki alkiot, jota POST taulussa on */
-				$tags[] = e($value);
+				$tags[] = e($_POST['tagIds'][$x]);
+			}
 		}
 		
 		/* laitetaan fields taulukkoon add_postista sisältö */
@@ -64,12 +68,13 @@ if ( !empty($_SERVER['CONTENT_LENGTH']) && empty($_FILES) && empty($_POST) ) {
 			'title' => $title,
 			'content' => $content,
 			'tags' => $tags,
+			'tagNames' => $tagNames,
 			'imageName' => $imageName
 		];
 		
 	}
 
-	if(!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tags'])) {
+	if(!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tagIds'])) {
 		$allTextFieldsFilled = true;
 	} else {
 		$errors[] = 'Lukuunottamatta kuvatiedostoa, kaikki kentät ovat pakollisia';
@@ -100,21 +105,50 @@ if( $allTextFieldsFilled && !$fileTooBig) {
 	
 	/* Executing SQL query */
 	$stmt->execute();
-	
 	$postId = $handler->lastInsertId();
-	$sql = 'INSERT INTO posttag (postId, tagId) VALUES (:postId, :tag)';
 	
-	foreach($_POST['tags'] as $tag) {
-		/* Yhdistetään kysely yhteyteen*/
-		$stmt = $handler->prepare($sql);
+	// TAGS
+	for ($x = 0; $x < sizeof($_POST['tagIds']); $x++) {
+		// tarkistetaan onko tagi jo kannassa
+		$query = $handler->prepare('SELECT * FROM tag WHERE tagName = :tagName;');
+		$tagName = e($_POST['tagNames'][$x]);
+		$query->bindParam(':tagName', $tagName, PDO::PARAM_INT);
+		$query->execute();
 		
-		$tag = e($tag);
-		
-		$stmt->bindParam(':postId', $postId, PDO::PARAM_STR);
-		$stmt->bindParam(':tag', $tag, PDO::PARAM_STR);
-		
-		$stmt->execute();
+		if ($query->rowCount() == 0) {
+			$tag = e($_POST['tagNames'][$x]);
+	
+			$sql = 'INSERT INTO tag (tagName) VALUES (:tag)';
+			
+			$stmt = $handler->prepare($sql);
+			$stmt->bindParam(':tag', $tag, PDO::PARAM_STR);
+			$stmt->execute();
+			
+			$tagId = $handler->lastInsertId();
+			
+			$sql = 'INSERT INTO posttag (postId, tagId) VALUES (:postId, :tag)';
+			
+			$stmt = $handler->prepare($sql);
+				
+			$tag = e($tagId);
+			
+			$stmt->bindParam(':postId', $postId, PDO::PARAM_STR);
+			$stmt->bindParam(':tag', $tag, PDO::PARAM_STR);
+			
+			$stmt->execute();
+		} else {
+			$sql = 'INSERT INTO posttag (postId, tagId) VALUES (:postId, :tag)';
+			$stmt = $handler->prepare($sql);
+			
+			$tag = e($_POST['tagIds'][$x]);
+			
+			$stmt->bindParam(':postId', $postId, PDO::PARAM_STR);
+			$stmt->bindParam(':tag', $tag, PDO::PARAM_STR);
+			
+			$stmt->execute();
+		}
 	}
+	
 	/* Redirecting to main page*/
 	header('Location: index.php');
 } else {
