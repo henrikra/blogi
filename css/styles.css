@@ -97,6 +97,7 @@ header h1 {
 	color: #fff;
 	margin: 0;
 	font-size: 50px;
+	display: inline-block;
 }
 
 /*--- Navbar ---*/

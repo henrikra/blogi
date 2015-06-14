@@ -1,7 +1,9 @@
 <?php include_once('helpers.php'); ?>
 <header>
 	<div class="header-background">
-		<h1 class="vertical-center">Korea Blog</h1>
+		<a href="index.php">
+			<h1 class="vertical-center">Korea Blog</h1>
+		</a>
 	</div>
 	<nav>
 		<div class="wrapper">
