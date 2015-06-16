@@ -11,11 +11,13 @@
 session_start();
 include_once('database.php');
 include_once('helpers.php');
-?>
 
-<?php
-// Pagination
-include_once('set_pagination_parameters.php');
+// posts per page
+$perPage = 5;
+// User input
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+// Start showing pages position
+$startingPost = $page * $perPage - $perPage;
 ?>
 
 	<body class="preload">
