@@ -12,6 +12,12 @@ session_start();
 include_once('database.php');
 include_once('helpers.php');
 ?>
+
+<?php
+// Pagination
+include_once('set_pagination_parameters.php');
+?>
+
 	<body class="preload">
 		<?php include_once('header.php'); ?>
 		<div class="wrapper clearfix">
@@ -24,7 +30,7 @@ include_once('helpers.php');
 				$searchLength = -1; // Alustettu arvo
 				// Onko hyvä paikka näille?
 				if(isset($_GET['tagId'])) {
-					$query = $handler->prepare('SELECT * FROM tag WHERE tagId = :tagId;');
+					$query = $handler->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM tag WHERE tagId = :tagId;');
 					$tagId = (int)$_GET['tagId'];
 					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
 					$query->execute();
@@ -39,23 +45,36 @@ include_once('helpers.php');
 				/*** Suoritetaan haluttu haku ***/
 				/* vaihtoehto 1: haetaan tagilla*/
 				if(isset($_GET['tagId'])) {
-					$query = $handler->prepare('SELECT * FROM post INNER JOIN posttag ON post.postId = posttag.postId WHERE posttag.tagId = :tagId ORDER BY postDatetime DESC;');
+					$searchType = "tag";
+					$query = $handler->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM post INNER JOIN posttag ON post.postId = posttag.postId WHERE posttag.tagId = :tagId ORDER BY postDatetime DESC LIMIT :startingPost, 5;');
 					$query->bindParam(':tagId', $tagId, PDO::PARAM_INT);
+					$query->bindParam(':startingPost', $startingPost, PDO::PARAM_INT);
 					$query->execute();
+					
 				/* vaihtoehto 2: haetaan hakusanalla */
 				} else if(isset($_GET['search']) && $searchLength >= 3) {
-					$query = $handler->prepare('SELECT * FROM post WHERE content LIKE :search ORDER BY postDatetime DESC;');
+					$searchType = "string";
+					$query = $handler->prepare('SELECT SQL_CALC_FOUND_ROWS * FROM post WHERE content LIKE :search ORDER BY postDatetime DESC LIMIT :startingPost, 5;');
 					$searchPattern = '%' . $search . '%';
 					$query->bindParam(':search', $searchPattern, PDO::PARAM_STR);
+					$query->bindParam(':startingPost', $startingPost, PDO::PARAM_INT);
 					$query->execute();
 				} else {
+					
 				/* vaihtoehto 3: haetaan kaikki */
-					$query = $handler->query('SELECT * FROM post ORDER BY postDatetime DESC;');
+					$searchType = "all";
+					$query = $handler->query("SELECT SQL_CALC_FOUND_ROWS * FROM post ORDER BY postDatetime DESC LIMIT {$startingPost}, 5;");
+					$query->execute();
+					
+
+					
 					/* Tarkistetaan oliko pituuden vuoksi hylättyä hakusanaa */
 					if ($searchLength >= 0 && $searchLength <= 2) {
 						$searchErrors[] = 'Minimum length for search term is 3 characters.';
 					}
 				}
+				// Total posts
+				$totalPosts = $handler->query("SELECT FOUND_ROWS() AS total")->fetch()['total'];
 				?>
 				
 				<!-- Näytetään mahdolliset hakuehdot -->
@@ -108,6 +127,7 @@ include_once('helpers.php');
 					</div>
 				</div><!-- post -->
 				<?php endwhile; ?>
+				<?php include_once('page_panel.php') ?>
 			</div><!-- main-content -->
 			<?php include_once('sidebar.php'); ?>
 		</div><!-- wrapper -->

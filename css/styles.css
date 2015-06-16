@@ -576,6 +576,12 @@ footer .footer-content {
 	text-decoration: none;
 }
 
+/*--- Pagination ---*/
+¨
+.pagination-panel. .current-page{
+	color: #FF7F7F;
+}
+
 /*--- Media queries ---*/
 
 @media (max-width: 767px) {
