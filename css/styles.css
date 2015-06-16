@@ -577,9 +577,44 @@ footer .footer-content {
 }
 
 /*--- Pagination ---*/
-¨
-.pagination-panel. .current-page{
-	color: #FF7F7F;
+
+.pagination {
+	text-align: center;
+}
+
+.pagination a {
+	display: inline-block;
+	text-decoration: none;
+	background: #fff;
+	padding: 5px 12px;
+	border: 1px solid #ccc;
+	font-size: 18px;
+}
+
+.pagination a:hover, .pagination a.current-page {
+	background: #FF7F7F;
+	border-color: #FF7F7F;
+	color: #fff;
+}
+
+.pagination a.current-page {
+	cursor: not-allowed;
+}
+
+.pagination a + a {
+	margin-left: 5px;
+}
+
+.pagination .pagination-arrow {
+	font-size: 14px;
+}
+
+.pagination .fa-chevron-right {
+	padding-left: 2px;
+}
+
+.pagination .fa-chevron-left {
+	padding-right: 2px;
 }
 
 /*--- Media queries ---*/

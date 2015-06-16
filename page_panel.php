@@ -1,13 +1,11 @@
-<div class="panel">
-	<?php
-	
-	// Page count
-	$pageCount = ceil($totalPosts / $perPage);
-	?>
-	
+<div class="pagination">
 	<!-- Print pagenumbers with links-->
-	<div class="pagination-panel">
+	<div class="panel-equal-container">
 		<?php
+		
+		// Page count
+		$pageCount = ceil($totalPosts / $perPage);
+
 		// Url addition that corresponds to search
 		$urlAddition = '';
 		
@@ -23,11 +21,22 @@
 			$urlAddition = '&search=' . $search;
 		?>
 		
+		<?php if ($page > 1) : ?>
+		<a href="index.php?page=<?php echo ($page - 1) . $urlAddition;?>">
+			<i class="fa fa-chevron-left pagination-arrow"></i>
+		</a>
+		<?php endif; ?>
 		<?php for($i = 1; $i <= $pageCount; $i++) : ?>
-		<a href="index.php?page=<?php echo $i . $urlAddition;?>" <?php echo $i === $page ? 'class="current-page"' : ''; ?>>
-			<?php echo $i . ' '; ?>
+		<a href="index.php?page=<?php echo $i . $urlAddition;?>"
+		<?php echo $i === $page ? 'class="current-page" disabled' : ''; ?>>
+			<?php echo $i; ?>
 		</a>
 		<?php endfor; ?>
+		<?php if ($page < $pageCount) : ?>
+		<a href="index.php?page=<?php echo ($page + 1) . $urlAddition;?>">
+			<i class="fa fa-chevron-right pagination-arrow"></i>
+		</a>
+		<?php endif; ?>
 	</div>
 	
 </div>
