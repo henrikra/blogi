@@ -20,8 +20,9 @@ if(isset($_POST['sub'])){
 		<meta charset="utf-8">
 		<title>Login</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="css/styles.css"/>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link href='http://fonts.googleapis.com/css?family=Dosis|Open+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/styles.css"/>
 	</head>
 	<body class="preload">
 		<?php include_once('header.php'); ?>

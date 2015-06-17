@@ -7,7 +7,7 @@ include_once('helpers.php');
 $postId = e($_POST['postId']);
 
 /*--- Spämmisesto ---*/
-// Tarkastetaan, onko session aikana tehty aikaisempi kommentti
+// Oletetaan, että kommentointi on mahdollista
 $ableToComment = true;
 // Jos on tehty aikaisempi kommentti, tutkitaan onko kulunut riittävä aika siitä
 if (isset($_SESSION['commentPostTime'])) {
@@ -16,13 +16,6 @@ if (isset($_SESSION['commentPostTime'])) {
 	$cooldownTime = 30;
 	$ableToComment = $currentTime - $commentPostTime > $cooldownTime;
 }
-
-/*
-$_SESSION['errors'][] = '!$hasCommented: ' . !$hasCommented;
-$_SESSION['errors'][] = '$currentTime: ' . $currentTime;
-$_SESSION['errors'][] = '$commentPostTime: ' . $commentPostTime;
-$_SESSION['errors'][] = 'Spämmiesto :' . (!$hasCommented || $ableToComment);
-*/
 
 if( !empty($_POST['postId']) && !empty($_POST['commentAuthor']) && !empty($_POST['commentContent']) && $ableToComment){
 		
