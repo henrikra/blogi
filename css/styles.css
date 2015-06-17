@@ -5,9 +5,13 @@
 }
 
 body {	
-	font-family: Arial, Helvetica, sans-serif; /* Font stack */
+	font-family: 'Open Sans', sans-serif; /* Font stack */
 	background-image: url("../img/bg-texture.png");
 	margin: 0;
+}
+
+body h1 , body h2{
+	font-family: 'Dosis', sans-serif;
 }
 
 .clearfix:after {
