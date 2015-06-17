@@ -87,7 +87,7 @@
 					<?php if(!empty($_SESSION['errors'])) : ?>
 					<div class="error">
 						<div class="error-title">
-							<i class="fa fa-exclamation-triangle"></i>Please note
+							<i class="fa fa-exclamation-triangle"></i> Please note
 						</div>
 						<?php printErrorList($_SESSION['errors']); ?>
 					</div>
@@ -122,6 +122,7 @@
 </html>
 
 <?php
+/*--- Unsetataan errorit ja kenttien sisältö---*/
 unset($_SESSION['fields']);
 unset($_SESSION['errors']);
 ?>
