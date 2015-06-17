@@ -59,7 +59,7 @@ function getComments($row) {
 	echo '</div>';
 	// Ei aseteta vastauslinkkiä jos liian syvä kommenttitaso
 	if($commentLevel < 5) {
-		echo '<a class="reply-btn" data-reply-id="' . $row->commentId . '">Vastaa</a>';
+		echo '<a class="reply-btn" data-reply-id="' . $row->commentId . '">Reply</a>';
 	}
 	
 	// Etsitään kommentin vastaukset
