@@ -13,6 +13,7 @@
 		session_start();
 		include_once('helpers.php');
 		include_once('database.php');
+		require_once('Token.php');
 		
 		if (!isAuthenticated())
 			header('Location: login.php');
@@ -133,12 +134,15 @@
 							</div>
 						</div>
 						
+						<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+						
 						<div class="form-row">
 							<label class="col-2"></label>
 							<div class="col-8">
 								<input class="button" type="submit" value="Submit">
 							</div>
-						</div>	
+						</div>
+						
 					</form>
 				</div><!-- panel-container -->
 			</div> <!-- main content -->

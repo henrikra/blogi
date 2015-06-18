@@ -3,11 +3,14 @@ session_start();
 
 include_once('database.php');
 include_once('helpers.php');
+require_once('token.php');
+
+if (!isAuthenticated())
+	header('Location: login.php');
 
 $errors = [];
 $tags = [];
 $tagNames = [];
-
 
 $fileTooBig = false;
 if ( !empty($_SERVER['CONTENT_LENGTH']) && empty($_FILES) && empty($_POST) ) {
@@ -81,8 +84,18 @@ if ( !empty($_SERVER['CONTENT_LENGTH']) && empty($_FILES) && empty($_POST) ) {
 	}
 }
 
+/*--- Validating token---*/
+$correctToken = false;
+// Check that $_POST['token] is set
+if(!isset($_POST['token'])) {
+	$errors[] = 'Something went wrong.';
+	// Check that token is the same as in the session
+} else if (Token::check($_POST['token'])) {
+	$correctToken = true;
+}
+
 // Jos kaikki tarkistukset menivät läpi niin viedään kantaan
-if( $allTextFieldsFilled && !$fileTooBig) {
+if( $allTextFieldsFilled && !$fileTooBig && $correctToken) {
 	$sql = 'INSERT INTO post(author, title, content, imageLocation) VALUES (:author, :title, :content, :imageLocation)';
 
 	$stmt = $handler->prepare($sql);
@@ -151,13 +164,18 @@ if( $allTextFieldsFilled && !$fileTooBig) {
 	
 	/* Redirecting to main page*/
 	header('Location: index.php');
-} else {
+} else if($correctToken) {
 	
-	/* Redirecting back to add_post with PART OF inserted values */
-	/* Currently PART OF means: author, title, content*/
+	/* Redirecting back to add_post with already inserted values */
 	
 	$_SESSION['fields'] = $fields;
 	$_SESSION['errors'] = $errors;
+	header('Location: add_post.php');
+} else {
+	/* Printing generic error if token is wrong*/
+	$_SESSION['errors'][] = 'Something went wrong';
+	// Echo error to this page for cURL
+	echo 'error';
 	header('Location: add_post.php');
 }
 
