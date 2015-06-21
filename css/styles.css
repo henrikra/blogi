@@ -263,6 +263,7 @@ textarea {
 
 .panel-container {
 	padding: 1px 20px 20px;
+	word-wrap: break-word;
 }
 
 .panel-header {
