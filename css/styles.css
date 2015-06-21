@@ -72,6 +72,11 @@ a:hover {
 	font-family: "Open Sans", sans-serif;
 }
 
+.button .fa {
+	position: relative;
+	top: -3px;
+}
+
 .button:hover {
 	background: #ededed;
 	border-color: #a8a8a8;
@@ -569,6 +574,7 @@ footer .footer-content {
 	float: left;
 	width: 70%;
 	border-right: 0;
+	height: 31px;
 }
 
 .button-group button {

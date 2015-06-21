@@ -149,6 +149,7 @@
 			<?php include_once('sidebar.php'); ?>
 		</div>
 		<?php include_once('footer.php'); ?>
+		<script src="js/tags.js"></script>
 	</body>
 	
 </html>
