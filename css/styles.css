@@ -24,6 +24,7 @@ h1, h2{
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 }
 
 input[type="text"], input[type="password"], .datalist-input, textarea, select {
