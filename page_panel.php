@@ -14,11 +14,11 @@
 		
 		/* Search with tag */
 		if(isset($_GET['tagId']))
-			$urlAddition = '&tagId=' . $tagId;
+			$urlAddition = '&amp;tagId=' . $tagId;
 		
 		/* Search with string */
 		if(isset($_GET['search']))
-			$urlAddition = '&search=' . $search;
+			$urlAddition = '&amp;search=' . $search;
 		?>
 		
 		<?php if ($page > 1) : ?>
@@ -28,7 +28,7 @@
 		<?php endif; ?>
 		<?php for($i = 1; $i <= $pageCount; $i++) : ?>
 		<a href="index.php?page=<?php echo $i . $urlAddition;?>"
-		<?php echo $i === $page ? 'class="current-page" disabled' : ''; ?>>
+		<?php echo $i === $page ? 'class="current-page disabled-link"' : ''; ?>>
 			<?php echo $i; ?>
 		</a>
 		<?php endfor; ?>

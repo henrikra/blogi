@@ -48,7 +48,7 @@
 						<?php if(!empty($post->imageLocation)) : ?>
 							<?php $picture = $post->imageLocation;?>
 							<a href="<?php echo $picture; ?>">
-								<img class="responsive-image" src="<?php echo $picture;?>">
+								<img class="responsive-image" src="<?php echo $picture;?>" alt="Post image">
 							</a>
 						<?php else : ?>
 							<hr>
