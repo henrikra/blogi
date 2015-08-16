@@ -1,26 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Add a new blog post</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Dosis|Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href= "css/styles.css">
-	</head>
-	
-	<?php
-		session_start();
-		include_once('helpers.php');
-		include_once('database.php');
-		require_once('Token.php');
+
+<?php
+require_once('head.php');
+session_start();
+include_once('helpers.php');
+include_once('database.php');
+require_once('Token.php');
+
+if (!isAuthenticated())
+	header('Location: login.php');
 		
-		if (!isAuthenticated())
-			header('Location: login.php');
-				
-		$errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
-		$fields = isset($_SESSION['fields']) ? $_SESSION['fields'] : [];
-	?>
+$errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
+$fields = isset($_SESSION['fields']) ? $_SESSION['fields'] : [];
+?>
 
 	<body class="preload">
 		<?php include_once('header.php'); ?>
