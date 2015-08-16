@@ -94,7 +94,7 @@ $startingPost = $page * $perPage - $perPage;
 				<?php endif; ?>
 				
 				<!-- Print posts -->
-				<?php ($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
+				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
 					<?php if(!empty($r->imageLocation)) :?><!-- If-lauseen short hand syntax -->
 					<a href="post.php?postId=<?php echo $r->postId;?>"> 
@@ -130,5 +130,4 @@ $startingPost = $page * $perPage - $perPage;
 		</div><!-- wrapper -->
 		<?php include_once('footer.php'); ?>
 	</body>
-
 </html>
