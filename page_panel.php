@@ -14,11 +14,11 @@
 		
 		/* Search with tag */
 		if(isset($_GET['tagId']))
-			$urlAddition = '&tagId=' . $tagId;
+			$urlAddition = '&amp;tagId=' . $tagId;
 		
 		/* Search with string */
 		if(isset($_GET['search']))
-			$urlAddition = '&search=' . $search;
+			$urlAddition = '&amp;search=' . $search;
 		?>
 		
 		<?php if ($page > 1) : ?>
