@@ -7,8 +7,8 @@
 		// Otetaan pois käytöstä linkit, joissa on disabled-attribuutti
 		var anchors = document.getElementsByTagName('a');
     for (var i = 0; i < anchors.length; i++) {
-			if (anchors[i].getAttribute('disabled') == '') {
-				anchors[i].onclick = function() {return(false);};
+			if (hasClass(anchors[i], 'disabled-link')) {
+				anchors[i].onclick = function() {return false;};
 			}
     }
 	}
@@ -29,5 +29,9 @@
 	
 	for(var i=0;i<classname.length;i++){
 		classname[i].addEventListener('click', replyToComment);
+	}
+
+	function hasClass(element, cls) {
+		return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 	}
 })();

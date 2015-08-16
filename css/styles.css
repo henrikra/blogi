@@ -129,6 +129,10 @@ header nav {
 	padding: 0 15px;
 }
 
+.nav-content > li {
+	padding: 0;
+}
+
 .nav-content li a {
 	text-decoration: none;
 	color: #888;
@@ -145,6 +149,8 @@ header nav {
 
 .nav-content .menu-actions {
 	float: right;
+	list-style: none;
+	padding: 0;
 }
 
 .menu-actions .menu-item {
@@ -647,7 +653,7 @@ footer .footer-content {
 		margin-top: 20px;
 	}
 	
-	nav ul {
+	nav .nav-content {
 		position: static;
 		display: none;
 	}

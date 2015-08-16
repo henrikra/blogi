@@ -28,7 +28,7 @@
 		<?php endif; ?>
 		<?php for($i = 1; $i <= $pageCount; $i++) : ?>
 		<a href="index.php?page=<?php echo $i . $urlAddition;?>"
-		<?php echo $i === $page ? 'class="current-page" disabled' : ''; ?>>
+		<?php echo $i === $page ? 'class="current-page disabled-link"' : ''; ?>>
 			<?php echo $i; ?>
 		</a>
 		<?php endfor; ?>
