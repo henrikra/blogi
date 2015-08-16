@@ -100,7 +100,7 @@ $startingPost = $page * $perPage - $perPage;
 				<?php endif; ?>
 				
 				<!-- Print posts -->
-				<?php while($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
+				<?php ($r = $query->fetch(PDO::FETCH_OBJ)) : ?>
 				<div class="post panel">
 					<?php if(!empty($r->imageLocation)) :?><!-- If-lauseen short hand syntax -->
 					<a href="post.php?postId=<?php echo $r->postId;?>"> 
