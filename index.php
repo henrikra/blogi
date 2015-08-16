@@ -2,6 +2,7 @@
 <html>
 
 <?php
+$title = 'Main page';
 require_once('head.php');
 session_start();
 include_once('database.php');
